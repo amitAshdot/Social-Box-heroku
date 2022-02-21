@@ -1,4 +1,4 @@
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -54,6 +54,7 @@ const ChoseType = () => {
             {btnArr.map((btn, index) => {
                 if (index !== 2)
                     return <button className={`option ${btn.value === chosenType ? 'active' : ''}`} onClick={handleClick} value={index + 1} name="type" disabled={formState.step !== stepNumber} key={index}>
+                        {btn.value === chosenType ? <FontAwesomeIcon className='check' icon={faCircleCheck} /> : null}
                         <h3 className='option-head'>{btn.topText}</h3>
                         <picture>
                             <source media="(min-width:650px)" srcSet={btn.img} />
@@ -65,6 +66,7 @@ const ChoseType = () => {
 
             {formState.vendor === "1" ?
                 <button className={`option ${'3' === chosenType ? 'active' : ''}`} onClick={handleClick} value='3' name="type" disabled={formState.step !== stepNumber}>
+                    {'3' === chosenType ? <FontAwesomeIcon className='check' icon={faCircleCheck} /> : null}
                     <h3 className='option-head'>קופה שיש לי בעסק</h3>
                     <picture>
                         <source media="(min-width:650px)" srcSet="/assets/images/cashier.webp" />

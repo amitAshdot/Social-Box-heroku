@@ -1,4 +1,4 @@
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -46,6 +46,7 @@ const Vendor = () => {
         <div className='form-step-buttons'>
 
             <button className={`option ${'2' === chosenVender ? 'active' : ''}`} onClick={handleClick} value="2" name="type" disabled={formState.step !== stepNumber} >
+                {'2' === chosenVender ? <FontAwesomeIcon className='check' icon={faCircleCheck} /> : null}
                 <h3> אין לי מספר ספק</h3>
 
                 <picture>
@@ -56,7 +57,7 @@ const Vendor = () => {
             </button>
 
             <button className={`option ${'1' === chosenVender ? 'active' : ''}`} onClick={handleClick} value="1" name="type" disabled={formState.step !== stepNumber}>
-
+                {'1' === chosenVender ? <FontAwesomeIcon className='check' icon={faCircleCheck} /> : null}
                 <h3>יש לי מספר ספק</h3>
                 <picture>
                     <source media="(min-width:650px)" srcSet='/assets/images/yeshli.webp' />
