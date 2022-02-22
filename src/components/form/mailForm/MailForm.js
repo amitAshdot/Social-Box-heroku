@@ -16,6 +16,7 @@ const MailForm = () => {
   const dispatch = useDispatch();
 
   const sendEmail = (e) => {
+    debugger
     e.preventDefault();
     emailjs.sendForm('service_royue7n', 'template_z241xon', e.target, 'user_vDUBQd87BDiQhmE7iy0Cf')
       .then((result) => {
@@ -27,12 +28,13 @@ const MailForm = () => {
 
   const handleClose = (e) => {
     e.preventDefault()
+
     if (e.target.className === 'contact-container' || e.currentTarget.hasAttribute("close"))
       dispatch(toggleMailForm(false))
   }
 
   return (formState.mailForm ?
-    <div className='contact-container' onClick={handleClose} >
+    <div className='contact-container'  >
       <form className="contact-form" onSubmit={sendEmail}>
         <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} />
 
@@ -51,15 +53,12 @@ const MailForm = () => {
 
         <div className='inputs'>
           <div className='inputs-top'>
-            {/* <label>שם פרטי</label> */}
             <input type="text" name="user_name" placeholder="שם מלא" />
 
-            {/* <label>אימייל</label> */}
-            <input type="email" name="user_email" placeholder="טלפון" />
+            <input type="email" name="user_email" placeholder=" מייל" />
           </div>
           <div className='inputs-bottom'>
-            {/* <label>טלפון</label> */}
-            <input type="tel" name="phone" placeholder="מייל" />
+            <input type="tel" name="phone" placeholder="טלפון" />
 
             <input type="submit" value="צרו איתי קשר" />
           </div>
