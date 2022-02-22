@@ -18,4 +18,5 @@ export const formTypes = {
     SET_OPTION: "SET_OPTION",
 
     CLOSE_RESULTS: "CLOSE_RESULTS",
+    TOGGLE_MAIL_FORM: "TOGGLE_MAIL_FORM",
 }

@@ -10,6 +10,7 @@ const initState = {
     avgArr: [],
     referralLinks: [],
     step: 1,
+    mailForm: false,
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -65,7 +66,6 @@ export default function (state = initState, action) {
 
 
         case formTypes.SET_AVERAGE_COMMISION:
-            debugger
             if (!payload)
                 return { ...state, step: 5 }
             else
@@ -79,8 +79,10 @@ export default function (state = initState, action) {
                 return { ...state, name: value }
 
         case formTypes.CLOSE_RESULTS:
-            debugger
             return { ...state, step: 8 }
+
+        case formTypes.TOGGLE_MAIL_FORM:
+            return { ...state, mailForm: payload }
 
         default:
             return state;

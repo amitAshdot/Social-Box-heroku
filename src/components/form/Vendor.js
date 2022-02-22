@@ -2,7 +2,7 @@ import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStart, setVendor, setStepDown, setStepUp, setStep } from '../../store/form/action';
+import { setVendor, setStepUp, setStep } from '../../store/form/action';
 
 
 const Vendor = () => {

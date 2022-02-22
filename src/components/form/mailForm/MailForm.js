@@ -1,16 +1,19 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
 import { useDispatch, useSelector } from 'react-redux';
+import { toggleMailForm } from '../../../store/form/action';
+
 
 // import { init } from '@emailjs/browser';
 // init("user_vDUBQd87BDiQhmE7iy0Cf");
-import config from '../../../.config.json'
+// import config from '../../../.config.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faTimesCircle, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
-const MailForm = ({ toggle, setToggle }) => {
+const MailForm = () => {
   const formState = useSelector(state => state.formReducer);
-  const dataState = useSelector(state => state.dataReducer);
+  // const dataState = useSelector(state => state.dataReducer);
+  const dispatch = useDispatch();
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -25,10 +28,10 @@ const MailForm = ({ toggle, setToggle }) => {
   const handleClose = (e) => {
     e.preventDefault()
     if (e.target.className === 'contact-container' || e.currentTarget.hasAttribute("close"))
-      setToggle(false);
+      dispatch(toggleMailForm(false))
   }
 
-  return (toggle ?
+  return (formState.mailForm ?
     <div className='contact-container' onClick={handleClose} >
       <form className="contact-form" onSubmit={sendEmail}>
         <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} />
@@ -42,7 +45,7 @@ const MailForm = ({ toggle, setToggle }) => {
         <p>השאר פרטים בטופס מטה ונציג יחזור אליך בהקדם</p>
         <p className="taknonbox">
           שליחת הפרטים מהווה אישור
-          <a rel="nofollow" href="https://check-box.co.il/privacy-policy/" target="_blank"> תקנון </a>
+          <a href="https://check-box.co.il/privacy-policy/" target="_blank" rel="noreferrer"> תקנון </a>
           האתר
         </p>
 

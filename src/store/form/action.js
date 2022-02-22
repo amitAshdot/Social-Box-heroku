@@ -1,9 +1,7 @@
 import { formTypes } from './formTypes'
-import axios from 'axios';
+// import axios from 'axios';
 
-export const fetchStart = () => {
-    return { type: formTypes.FETCH_FAVORITE_START }
-};
+export const fetchStart = () => { return { type: formTypes.FETCH_FAVORITE_START } };
 
 export const fetchSuccess = (allData, localStorage) => {
     let finaleData = []
@@ -14,52 +12,37 @@ export const fetchSuccess = (allData, localStorage) => {
     return { type: formTypes.FETCH_FAVORITE_SUCCESS, finaleData }
 };
 
-export const fetchFail = () => {
-    return { type: formTypes.FETCH_FAVORITE_FAIL }
-};
+export const fetchFail = () => { return { type: formTypes.FETCH_FAVORITE_FAIL } };
 
-export const setVendor = (value) => {
+export const toggleMailForm = (value) => { return { type: formTypes.TOGGLE_MAIL_FORM, payload: value } }
 
-    // const boolValue = value === "true" ? true : false
-    return { type: formTypes.SET_VENDOR, payload: value }
-}
-export const setType = (value) => {
-    return { type: formTypes.SET_TYPE, payload: value }
-}
-export const setRevRange = (value) => {
-    return { type: formTypes.SET_REV_RANGE, payload: value }
-}
-export const setIndustry = (value) => {
-    return { type: formTypes.SET_INDUSTRY, payload: value }
-}
-export const setAvgArr = (arr) => {
-    return { type: formTypes.SET_AVERAGE_COMMISION, payload: arr }
-}
-export const setStep = (step) => {
-    return { type: formTypes.SET_STEP, payload: step }
-}
-export const setStepUp = (step) => {
-    return { type: formTypes.SET_STEP_UP, payload: step }
-}
-export const setStepDown = (step) => {
-    return { type: formTypes.SET_STEP_DOWN, payload: step }
-}
-export const closeResults = () => {
-    return { type: formTypes.CLOSE_RESULTS }
-}
-export const setOption = (name, value) => {
-    return { type: formTypes.SET_OPTION, payload: { name: name, value: value } }
-}
+export const setVendor = (value) => { return { type: formTypes.SET_VENDOR, payload: value } }
+
+export const setType = (value) => { return { type: formTypes.SET_TYPE, payload: value } }
+
+export const setRevRange = (value) => { return { type: formTypes.SET_REV_RANGE, payload: value } }
+
+export const setIndustry = (value) => { return { type: formTypes.SET_INDUSTRY, payload: value } }
+
+export const setAvgArr = (arr) => { return { type: formTypes.SET_AVERAGE_COMMISION, payload: arr } }
+
+export const setStep = (step) => { return { type: formTypes.SET_STEP, payload: step } }
+
+export const setStepUp = (step) => { return { type: formTypes.SET_STEP_UP, payload: step } }
+
+export const setStepDown = (step) => { return { type: formTypes.SET_STEP_DOWN, payload: step } }
+
+export const closeResults = () => { return { type: formTypes.CLOSE_RESULTS } }
+
+export const setOption = (name, value) => { return { type: formTypes.SET_OPTION, payload: { name: name, value: value } } }
 
 
 export const findAverage = (arr) => {
-    debugger
     let companyMap = new Map()
     companyMap = mapByArr(arr)
 
     const finaleListArr = []
     companyMap.forEach((values, keys) => {
-        // if (values.company === 'מקס') debugger
         finaleListArr.push({ avg: (values.comission / values.amountToSub), name: values.company })
     })
     console.log(finaleListArr)

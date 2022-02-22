@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import ChoseType from '../form/ChoseType'
+import React, { useEffect } from 'react'
+// import ChoseType from '../form/ChoseType'
 
-import Vendor from '../form/Vendor'
-import Select from '../form1/Select'
+// import Vendor from '../form/Vendor'
+// import Select from '../form1/Select'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStart, setRevRange, setType } from '../../store/form/action';
+import { toggleMailForm } from '../../store/form/action';
 
-import GeneralForm from '../form/general/GeneralForm';
-import MailForm from '../form/mailForm/MailForm';
-import Result from '../results/Result'
+// import GeneralForm from '../form/general/GeneralForm';
+// import MailForm from '../form/mailForm/MailForm';
+// import Result from '../results/Result'
 import { Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faChevronCircleLeft, faCircle, faCircleCheck, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+
 const ResultsArr = () => {
     const formState = useSelector(state => state.formReducer);
     const dataState = useSelector(state => state.dataReducer);
 
     const dispatch = useDispatch();
-    const [toggle, setToggle] = useState(false)
+    // const [toggle, setToggle] = useState(false)
 
     const handleToggle = (e) => {
         e.preventDefault();
-        setToggle(!toggle)
+        dispatch(toggleMailForm(!formState.mailForm))
     }
 
     useEffect(() => { }, [])
@@ -74,7 +75,6 @@ const ResultsArr = () => {
                     <FontAwesomeIcon className='check' icon={faAngleLeft} />
                 </Link>
             </div>
-            {toggle ? <MailForm toggle={toggle} setToggle={setToggle} /> : null}
         </div>)
 
     })

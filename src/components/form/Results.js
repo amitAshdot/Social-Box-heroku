@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import ChoseType from './ChoseType'
-import RevRange from './RevRange'
-import Vendor from './Vendor'
+// import ChoseType from './ChoseType'
+// import RevRange from './RevRange'
+// import Vendor from './Vendor'
 
 import { useDispatch, useSelector } from 'react-redux';
-import Industry from './Industry';
-import { setAvgArr, setType, closeResults, findAverage } from '../../store/form/action';
+// import Industry from './Industry';
+import { closeResults, findAverage } from '../../store/form/action';
 
 const Results = ({ industryeArr }) => {
     const dispatch = useDispatch();
@@ -14,12 +14,8 @@ const Results = ({ industryeArr }) => {
     const formState = useSelector(state => state.formReducer);
     const dataState = useSelector(state => state.dataReducer);
 
-    const referralLinks = [{ name: 'max', url: 'google.come' },]
-
     useEffect(() => {
-        debugger
         dispatch(findAverage(industryeArr))
-
     }, [])
 
     const handleClose = (e) => {

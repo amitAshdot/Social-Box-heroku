@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStart, setRevRange, setType, setStepUp, setStep } from '../../store/form/action';
+import { setRevRange, setStepUp, setStep } from '../../store/form/action';
 
-import AnimateHeight from 'react-animate-height';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faCircle, faCircleCheck, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 const RevRange = () => {
 
     const stepNumber = 4
