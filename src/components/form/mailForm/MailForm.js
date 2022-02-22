@@ -36,13 +36,6 @@ const MailForm = () => {
   return (formState.mailForm ?
     <div className='contact-container'  >
       <form className="contact-form" onSubmit={sendEmail}>
-        {/* <FontAwesomeIcon icon={faPaperPlane} />
-        <FontAwesomeIcon className='sent' icon={faCheckCircle} /> */}
-        {formState.mailSent ?
-          <>
-            <FontAwesomeIcon icon={faPaperPlane} />
-            <FontAwesomeIcon className='sent' icon={faCheckCircle} />
-          </> : null}
         <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} />
 
         <input type="hidden" name="contact_number" />
@@ -57,20 +50,27 @@ const MailForm = () => {
           <a href="https://check-box.co.il/privacy-policy/" target="_blank" rel="noreferrer"> תקנון </a>
           האתר
         </p>
+        {formState.mailSent ?
+          <>
+            <FontAwesomeIcon icon={faPaperPlane} />
+            <FontAwesomeIcon className='sent' icon={faCheckCircle} />
+          </>
+          :
+          <div className='inputs'>
+            <div className='inputs-top'>
+              <input type="text" name="user_name" placeholder="שם מלא" />
 
-        <div className='inputs'>
-          <div className='inputs-top'>
-            <input type="text" name="user_name" placeholder="שם מלא" />
+              <input type="email" name="user_email" placeholder=" מייל" />
+            </div>
+            <div className='inputs-bottom'>
+              <input type="tel" name="phone" placeholder="טלפון" />
 
-            <input type="email" name="user_email" placeholder=" מייל" />
+              <input type="submit" value="צרו איתי קשר" />
+            </div>
+
           </div>
-          <div className='inputs-bottom'>
-            <input type="tel" name="phone" placeholder="טלפון" />
+        }
 
-            <input type="submit" value="צרו איתי קשר" />
-          </div>
-
-        </div>
 
         {/* <input type="hidden" name="referralLinks" value={formState.referralLinks} /> */}
 
