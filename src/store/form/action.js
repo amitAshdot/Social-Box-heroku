@@ -35,6 +35,9 @@ export const setIndustry = (value) => {
 export const setAvgArr = (arr) => {
     return { type: formTypes.SET_AVERAGE_COMMISION, payload: arr }
 }
+export const setStep = (step) => {
+    return { type: formTypes.SET_STEP, payload: step }
+}
 export const setStepUp = (step) => {
     return { type: formTypes.SET_STEP_UP, payload: step }
 }

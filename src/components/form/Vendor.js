@@ -2,7 +2,7 @@ import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStart, setVendor, setStepDown, setStepUp } from '../../store/form/action';
+import { fetchStart, setVendor, setStepDown, setStepUp, setStep } from '../../store/form/action';
 
 
 const Vendor = () => {
@@ -26,7 +26,7 @@ const Vendor = () => {
     const handleChoseAgain = (e) => {
         e.preventDefault();
         if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
-            dispatch(setVendor(null))
+            dispatch(setStep(stepNumber))
     }
 
     const handleNextStep = (e) => {
@@ -70,7 +70,7 @@ const Vendor = () => {
 
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : 'chose'} vendor`} again={formState.step !== stepNumber && formState.vendor ? `again` : ''} onClick={handleChoseAgain}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : 'chose'} vendor`} again={formState.step !== stepNumber && formState.vendor ? `again` : ''} onClick={formState.vendor ? handleChoseAgain : null}>
             {formState.vendor && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :

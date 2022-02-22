@@ -7,6 +7,7 @@ export const formTypes = {
     REMOVE_FAVORITE: "REMOVE_FAVORITE",
 
 
+    SET_STEP: "SET_STEP",
     SET_STEP_UP: "SET_STEP_UP",
     SET_STEP_DOWN: "SET_STEP_DOWN",
     SET_VENDOR: "SET_VENDOR",

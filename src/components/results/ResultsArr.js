@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import ChoseType from '../form/ChoseType'
-import HasVendorForm from '../form/HasVendorForm'
+
 import Vendor from '../form/Vendor'
 import Select from '../form1/Select'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStart, setRevRange, setType } from '../../store/form/action';
-import NoVendorForm from '../form/NoVendorForm';
+
 import GeneralForm from '../form/general/GeneralForm';
 import MailForm from '../form/mailForm/MailForm';
 import Result from '../results/Result'

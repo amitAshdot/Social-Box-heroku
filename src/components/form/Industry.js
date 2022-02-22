@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStart, setRevRange, setType, setIndustry, setStepUp } from '../../store/form/action';
+import { fetchStart, setRevRange, setType, setIndustry, setStepUp, setStep } from '../../store/form/action';
 import AnimateHeight from 'react-animate-height';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -23,7 +23,7 @@ const Industry = () => {
     const handleChoseAgain = (e) => {
         e.preventDefault();
         if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
-            dispatch(setIndustry(null));
+            dispatch(setStep(stepNumber))
     }
 
     const buttons = dataState.industry.map((industry) =>
@@ -51,7 +51,7 @@ const Industry = () => {
     const stepExtraClass = formState.step > stepNumber ? 'chose' : ''
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} `} again={formState.step !== stepNumber && formState.industry ? `again` : ''} onClick={handleChoseAgain}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} `} again={formState.step !== stepNumber && formState.industry ? `again` : ''} onClick={formState.industry ? handleChoseAgain : null}>
             {formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :

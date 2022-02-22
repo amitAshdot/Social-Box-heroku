@@ -29,9 +29,10 @@ export default function (state = initState, action) {
         //     return { ...state, loading: false }
 
         case formTypes.SET_STEP_UP:
-            // debugger
             return { ...state, step: payload }
         case formTypes.SET_STEP_DOWN:
+            return { ...state, step: payload }
+        case formTypes.SET_STEP:
             return { ...state, step: payload }
 
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStart, setRevRange, setType, setStepUp } from '../../store/form/action';
+import { fetchStart, setRevRange, setType, setStepUp, setStep } from '../../store/form/action';
 
 import AnimateHeight from 'react-animate-height';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -23,7 +23,7 @@ const RevRange = () => {
     const handleChoseAgain = (e) => {
         e.preventDefault();
         if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
-            dispatch(setRevRange(null))
+            dispatch(setStep(stepNumber))
 
     }
 
@@ -50,7 +50,7 @@ const RevRange = () => {
     }
 
     return (
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} rev-range`} again={formState.step !== stepNumber && formState.revRange ? `again` : ''} onClick={handleChoseAgain}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} rev-range`} again={formState.step !== stepNumber && formState.revRange ? `again` : ''} onClick={formState.revRange ? handleChoseAgain : null}>
             {formState.revRange && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :

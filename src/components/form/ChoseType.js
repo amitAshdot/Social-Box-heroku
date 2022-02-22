@@ -2,7 +2,7 @@ import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setType, setStepUp } from '../../store/form/action';
+import { setType, setStepUp, setStep } from '../../store/form/action';
 
 
 const ChoseType = () => {
@@ -23,7 +23,7 @@ const ChoseType = () => {
     const handleChoseAgain = (e) => {
         e.preventDefault();
         if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
-            dispatch(setType(null));
+            dispatch(setStep(stepNumber))
     }
 
     useEffect(() => {
@@ -92,7 +92,7 @@ const ChoseType = () => {
 
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass}  type`} again={formState.step !== stepNumber && formState.type ? `again` : ''} onClick={handleChoseAgain}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass}  type`} again={formState.step !== stepNumber && formState.type ? `again` : ''} onClick={formState.type ? handleChoseAgain : null}>
             {formState.type && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
@@ -101,7 +101,7 @@ const ChoseType = () => {
             {/* <FontAwesomeIcon icon={faCircleCheck} icon="fa-duotone fa-circle-1" /> */}
             {formState.step !== stepNumber ?
                 <>
-                    <p>{btnArr[chosenType - 1].bottomText}</p>
+                    <p>{chosenType ? btnArr[chosenType - 1].bottomText : null}</p>
                     <button className='again' onClick={handleChoseAgain}> בחר שוב</button>
                 </>
                 :
