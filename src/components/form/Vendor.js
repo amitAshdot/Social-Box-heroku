@@ -70,7 +70,7 @@ const Vendor = () => {
 
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : 'chose'} vendor`} again={formState.step !== stepNumber && formState.vendor ? `again` : ''} onClick={formState.vendor ? handleChoseAgain : null}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : 'chose'} vendor`} again={formState.step !== stepNumber && formState.vendor ? `again` : ''} onClick={formState.step !== stepNumber && formState.vendor ? handleChoseAgain : null}>
             {formState.vendor && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :

@@ -21,8 +21,10 @@ const Industry = () => {
 
     const handleChoseAgain = (e) => {
         e.preventDefault();
-        if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
+        if (e.target.className === 'again' || e.currentTarget.hasAttribute("again")) {
             dispatch(setStep(stepNumber))
+
+        }
     }
 
     const buttons = dataState.industry.map((industry) =>
@@ -50,7 +52,7 @@ const Industry = () => {
     const stepExtraClass = formState.step > stepNumber ? 'chose' : ''
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} `} again={formState.step !== stepNumber && formState.industry ? `again` : ''} onClick={formState.industry ? handleChoseAgain : null}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} `} again={formState.step !== stepNumber && formState.industry ? `again` : ''} onClick={formState.step !== stepNumber && formState.industry ? handleChoseAgain : null}>
             {formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :

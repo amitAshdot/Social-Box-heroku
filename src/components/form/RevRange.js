@@ -49,7 +49,7 @@ const RevRange = () => {
     }
 
     return (
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} rev-range`} again={formState.step !== stepNumber && formState.revRange ? `again` : ''} onClick={formState.revRange ? handleChoseAgain : null}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} rev-range`} again={formState.step !== stepNumber && formState.revRange ? `again` : ''} onClick={formState.step !== stepNumber && formState.revRange ? handleChoseAgain : null}>
             {formState.revRange && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :

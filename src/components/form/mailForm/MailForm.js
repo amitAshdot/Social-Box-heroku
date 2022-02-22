@@ -16,7 +16,6 @@ const MailForm = () => {
   const dispatch = useDispatch();
 
   const sendEmail = (e) => {
-    debugger
     e.preventDefault();
     emailjs.sendForm('service_royue7n', 'template_z241xon', e.target, 'user_vDUBQd87BDiQhmE7iy0Cf')
       .then((result) => {

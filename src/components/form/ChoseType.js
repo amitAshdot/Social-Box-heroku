@@ -24,6 +24,7 @@ const ChoseType = () => {
         e.preventDefault();
         if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
             dispatch(setStep(stepNumber))
+
     }
 
     useEffect(() => {
@@ -92,7 +93,7 @@ const ChoseType = () => {
 
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass}  type`} again={formState.step !== stepNumber && formState.type ? `again` : ''} onClick={formState.type ? handleChoseAgain : null}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass}  type`} again={formState.step !== stepNumber && formState.type ? `again` : ''} onClick={formState.step !== stepNumber && formState.type ? handleChoseAgain : null}>
             {formState.type && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
