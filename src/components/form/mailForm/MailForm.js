@@ -8,7 +8,7 @@ import config from '../../../.config.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faTimesCircle, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-const MailForm = () => {
+const MailForm = ({ toggle, setToggle }) => {
   const formState = useSelector(state => state.formReducer);
   const dataState = useSelector(state => state.dataReducer);
 
@@ -22,14 +22,18 @@ const MailForm = () => {
       });
   }
 
-  const handleClose = () => {
+  const handleClose = (e) => {
+    e.preventDefault()
     console.log('close')
+    debugger
+    if (e.target.className === 'contact-container' || e.currentTarget.hasAttribute("close"))
+      setToggle(false);
   }
 
-  return (
-    <div className='contact-container'>
+  return (toggle ?
+    <div className='contact-container' onClick={handleClose} >
       <form className="contact-form" onSubmit={sendEmail}>
-        <FontAwesomeIcon className='close' icon={faTimesCircle} onClick={handleClose} />
+        <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} />
 
         <input type="hidden" name="contact_number" />
         <input type="hidden" name="vendor" value={formState.vendor ? formState.vendor : ''} />
@@ -65,7 +69,7 @@ const MailForm = () => {
 
         {/* <input type="hidden" name="vendor" value={formState.vendor} /> */}
       </form>
-    </div>
+    </div> : null
   )
 }
 

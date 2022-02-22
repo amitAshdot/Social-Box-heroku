@@ -19,6 +19,15 @@ const ResultsArr = () => {
     const dataState = useSelector(state => state.dataReducer);
 
     const dispatch = useDispatch();
+    const [toggle, setToggle] = useState(false)
+
+    const handleToggle = (e) => {
+        e.preventDefault();
+        setToggle(!toggle)
+    }
+
+    useEffect(() => { }, [])
+
     // const [formType, setFormType] = useState(null)
     const filtered = dataState.referralLinks.filter(item => item.type === dataState.type[formState.type])
     const finaleRender = filtered.map((item, key) => {
@@ -58,13 +67,14 @@ const ResultsArr = () => {
                 <p className='referral-info-text'>פרטים נוספים</p>
                 <p className='referral-info-deatils'>{item.comments}</p>
             </div>
-            <div className='referral-btn' ><Link to="#" className='referral-btn btn'>
-                {`להתחלת סליקה `}
-
-                {/* <FontAwesomeIcon className='check' icon={faChevronCircleLeft} /> */}
-                <FontAwesomeIcon className='check' icon={faAngleLeft} />
-            </Link>
+            <div className='referral-btn' >
+                <Link to="#" className='referral-btn btn' onClick={handleToggle}>
+                    {`להתחלת סליקה `}
+                    {/* <FontAwesomeIcon className='check' icon={faChevronCircleLeft} /> */}
+                    <FontAwesomeIcon className='check' icon={faAngleLeft} />
+                </Link>
             </div>
+            {toggle ? <MailForm toggle={toggle} setToggle={setToggle} /> : null}
         </div>)
 
     })
