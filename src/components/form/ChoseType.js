@@ -93,13 +93,17 @@ const ChoseType = () => {
 
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass}  type`} again={formState.step !== stepNumber && formState.type ? `again` : ''} onClick={formState.step !== stepNumber && formState.type ? handleChoseAgain : null}>
+        <div
+            className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass}  type`}
+            again={formState.step !== stepNumber && formState.type ? `again` : ''}
+            onClick={formState.step !== stepNumber && formState.type ? handleChoseAgain : null}
+        >
+
             {formState.type && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}
             <h3>אני רוצה לסלוק באמצעות:</h3>
-            {/* <FontAwesomeIcon icon={faCircleCheck} icon="fa-duotone fa-circle-1" /> */}
             {formState.step !== stepNumber ?
                 <>
                     <p>{chosenType ? btnArr[chosenType - 1].bottomText : null}</p>
