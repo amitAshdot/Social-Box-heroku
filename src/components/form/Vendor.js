@@ -25,7 +25,8 @@ const Vendor = () => {
 
     const handleChoseAgain = (e) => {
         e.preventDefault();
-        dispatch(setVendor(null))
+        if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
+            dispatch(setVendor(null))
     }
 
     const handleNextStep = (e) => {
@@ -45,7 +46,7 @@ const Vendor = () => {
     const show =
         <div className='form-step-buttons'>
 
-            <button className={`option ${'2' === chosenVender ? 'active' : ''}`} onClick={handleClick} value="2" name="type" disabled={formState.step !== stepNumber} >
+            <button className={`option ${'2' === chosenVender ? 'active' : ''}`} onClick={handleClick} value="2" name="vendor" disabled={formState.step !== stepNumber} >
                 {'2' === chosenVender ? <FontAwesomeIcon className='check' icon={faCircleCheck} /> : null}
                 <h3> אין לי מספר ספק</h3>
 
@@ -56,7 +57,7 @@ const Vendor = () => {
                 אני רוצה להתחיל לסלוק דרך אפליקציה או המחשב או באמצעות אתר מסחר
             </button>
 
-            <button className={`option ${'1' === chosenVender ? 'active' : ''}`} onClick={handleClick} value="1" name="type" disabled={formState.step !== stepNumber}>
+            <button className={`option ${'1' === chosenVender ? 'active' : ''}`} onClick={handleClick} value="1" name="vendor" disabled={formState.step !== stepNumber}>
                 {'1' === chosenVender ? <FontAwesomeIcon className='check' icon={faCircleCheck} /> : null}
                 <h3>יש לי מספר ספק</h3>
                 <picture>
@@ -69,7 +70,7 @@ const Vendor = () => {
 
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : 'chose'} vendor`}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : 'chose'} vendor`} again={formState.step !== stepNumber && formState.vendor ? `again` : ''} onClick={handleChoseAgain}>
             {formState.vendor && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
@@ -78,8 +79,12 @@ const Vendor = () => {
                 האם יש לך מספר ספק מחברת האשראי? </h3>
 
 
-            {formState.vendor && formState.step !== stepNumber ?
-                <><p>{options[formState.vendor]}</p><button className='again' onClick={handleChoseAgain}> בחר שוב</button></> :
+            {formState.step !== stepNumber ?
+                <>
+                    <p>{options[formState.vendor]}</p>
+                    <button className='again' onClick={handleChoseAgain}> בחר שוב</button>
+                </>
+                :
                 <>
                     {show}
                     <button className='next' onClick={handleNextStep} disabled={chosenVender === null}>

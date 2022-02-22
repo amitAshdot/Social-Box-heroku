@@ -20,7 +20,11 @@ const Industry = () => {
         setChosenIndustry(e.target.value)
     }
 
-    const handleChoseAgain = (e) => { e.preventDefault(); dispatch(setIndustry(null)) }
+    const handleChoseAgain = (e) => {
+        e.preventDefault();
+        if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
+            dispatch(setIndustry(null));
+    }
 
     const buttons = dataState.industry.map((industry) =>
         <button className={`option ${industry.indname === chosenIndustry ? 'active' : ''}`} onClick={handleClick} value={industry.indname} disabled={formState.step !== stepNumber} key={industry.indid}>
@@ -47,13 +51,17 @@ const Industry = () => {
     const stepExtraClass = formState.step > stepNumber ? 'chose' : ''
     return (
 
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} `}>
-            {formState.industry && formState.step !== stepNumber ?
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} `} again={formState.step !== stepNumber && formState.industry ? `again` : ''} onClick={handleChoseAgain}>
+            {formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}
             <h3>סוג העסק</h3>
-            {formState.industry && formState.step !== stepNumber ? <><p>{formState.industry}</p><button className='again' onClick={handleChoseAgain}> בחר שוב</button></>
+            {formState.step !== stepNumber ?
+                <>
+                    <p>{formState.industry}</p>
+                    <button className='again' onClick={handleChoseAgain}> בחר שוב</button>
+                </>
                 :
                 <>
                     {show}

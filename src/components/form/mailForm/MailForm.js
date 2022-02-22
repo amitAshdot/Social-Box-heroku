@@ -24,8 +24,6 @@ const MailForm = ({ toggle, setToggle }) => {
 
   const handleClose = (e) => {
     e.preventDefault()
-    console.log('close')
-    debugger
     if (e.target.className === 'contact-container' || e.currentTarget.hasAttribute("close"))
       setToggle(false);
   }

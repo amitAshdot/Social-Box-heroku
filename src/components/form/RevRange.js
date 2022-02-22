@@ -20,7 +20,12 @@ const RevRange = () => {
         // dispatch(setRevRange(e.target.value))
     }
 
-    const handleChoseAgain = (e) => { e.preventDefault(); dispatch(setRevRange(null)) }
+    const handleChoseAgain = (e) => {
+        e.preventDefault();
+        if (e.target.className === 'again' || e.currentTarget.hasAttribute("again"))
+            dispatch(setRevRange(null))
+
+    }
 
     const buttons = dataState.range.map((range, key) =>
         <button className={`option ${range.range_name === chosenRevRange ? 'active' : ''}`} onClick={handleClick} value={range.range_name} disabled={formState.step !== stepNumber} key={key}>
@@ -45,14 +50,18 @@ const RevRange = () => {
     }
 
     return (
-        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} rev-range`}>
+        <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} rev-range`} again={formState.step !== stepNumber && formState.revRange ? `again` : ''} onClick={handleChoseAgain}>
             {formState.revRange && formState.step !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}
             <h3>מה הוא מחזור העסקאות</h3>
 
-            {formState.revRange && formState.step !== stepNumber ? <><p>{formState.revRange}</p><button className='again' onClick={handleChoseAgain}> בחר שוב</button></>
+            {formState.step !== stepNumber ?
+                <>
+                    <p>{formState.revRange}</p>
+                    <button className='again' onClick={handleChoseAgain}> בחר שוב</button>
+                </>
                 :
                 <>
                     {show}

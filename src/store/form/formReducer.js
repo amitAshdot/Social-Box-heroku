@@ -38,7 +38,7 @@ export default function (state = initState, action) {
 
         case formTypes.SET_VENDOR:
             if (!payload)
-                return { ...state, vendor: null, step: 1 }
+                return { ...state, step: 1 }
             else
                 return { ...state, vendor: payload }
 
@@ -46,19 +46,19 @@ export default function (state = initState, action) {
         case formTypes.SET_TYPE:
 
             if (!payload)
-                return { ...state, type: null, step: 2 }
+                return { ...state, step: 2 }
             else
                 return { ...state, type: payload }
 
         case formTypes.SET_INDUSTRY:
             if (!payload)
-                return { ...state, industry: null, step: 3 }
+                return { ...state, step: 3 }
             else
                 return { ...state, industry: payload }
 
         case formTypes.SET_REV_RANGE:
             if (!payload)
-                return { ...state, revRange: null, step: 4 }
+                return { ...state, step: 4 }
             else
                 return { ...state, revRange: payload }
 
@@ -66,14 +66,14 @@ export default function (state = initState, action) {
         case formTypes.SET_AVERAGE_COMMISION:
             debugger
             if (!payload)
-                return { ...state, avgArr: null, step: 5 }
+                return { ...state, step: 5 }
             else
                 return { ...state, avgArr: payload }
 
         case formTypes.SET_OPTION:
             const { name, value } = payload
             if (!value)
-                return { ...state, name: null, step: 5 }
+                return { ...state, step: 5 }
             else
                 return { ...state, name: value }
 
