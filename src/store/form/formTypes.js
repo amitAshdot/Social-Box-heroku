@@ -19,4 +19,5 @@ export const formTypes = {
 
     CLOSE_RESULTS: "CLOSE_RESULTS",
     TOGGLE_MAIL_FORM: "TOGGLE_MAIL_FORM",
+    MAIL_SENT: "MAIL_SENT",
 }

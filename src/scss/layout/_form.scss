@@ -307,6 +307,27 @@ button {
 
         }
 
+        svg.svg-inline--fa.fa-paper-plane {
+            position: absolute;
+            top: 30px;
+            left: -16%;
+            transform: translate(-50%, -50%) scale(2) rotate(39deg);
+
+            animation: flayPlane 1.5s;
+        }
+
+        svg.svg-inline--fa.sent {
+            position: absolute;
+            // top: 20px;
+            // left: 50%;
+            top: 18px;
+            left: 48%;
+            transform: scale(0) translate(-50%, -50%);
+            animation: scaleIn 1.5s;
+            animation-delay: 1.5s;
+            animation-fill-mode: forwards;
+        }
+
         &>p {
             padding: 0rem 2rem;
         }

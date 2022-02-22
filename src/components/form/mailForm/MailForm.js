@@ -1,14 +1,14 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleMailForm } from '../../../store/form/action';
+import { mailSent, toggleMailForm } from '../../../store/form/action';
 
 
 // import { init } from '@emailjs/browser';
 // init("user_vDUBQd87BDiQhmE7iy0Cf");
 // import config from '../../../.config.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faPaperPlane, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 const MailForm = () => {
   const formState = useSelector(state => state.formReducer);
@@ -19,6 +19,7 @@ const MailForm = () => {
     e.preventDefault();
     emailjs.sendForm('service_royue7n', 'template_z241xon', e.target, 'user_vDUBQd87BDiQhmE7iy0Cf')
       .then((result) => {
+        dispatch(mailSent())
         console.log(result.text);
       }, (error) => {
         console.log(error.text);
@@ -35,6 +36,13 @@ const MailForm = () => {
   return (formState.mailForm ?
     <div className='contact-container'  >
       <form className="contact-form" onSubmit={sendEmail}>
+        {/* <FontAwesomeIcon icon={faPaperPlane} />
+        <FontAwesomeIcon className='sent' icon={faCheckCircle} /> */}
+        {formState.mailSent ?
+          <>
+            <FontAwesomeIcon icon={faPaperPlane} />
+            <FontAwesomeIcon className='sent' icon={faCheckCircle} />
+          </> : null}
         <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} />
 
         <input type="hidden" name="contact_number" />

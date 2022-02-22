@@ -11,6 +11,7 @@ const initState = {
     referralLinks: [],
     step: 1,
     mailForm: false,
+    mailSent: false,
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -82,7 +83,10 @@ export default function (state = initState, action) {
             return { ...state, step: 8 }
 
         case formTypes.TOGGLE_MAIL_FORM:
-            return { ...state, mailForm: payload }
+            return { ...state, mailForm: payload, mailSent: false }
+
+        case formTypes.MAIL_SENT:
+            return { ...state, mailSent: true }
 
         default:
             return state;

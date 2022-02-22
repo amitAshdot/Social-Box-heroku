@@ -1,3 +1,27 @@
+@keyframes flayPlane {
+  0% {
+    top: 30px;
+    left: -16%;
+    transform: translate(-50%, -50%) scale(2) rotate(39deg);
+  }
+
+  100% {
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(39deg);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

@@ -36,6 +36,7 @@ export const closeResults = () => { return { type: formTypes.CLOSE_RESULTS } }
 
 export const setOption = (name, value) => { return { type: formTypes.SET_OPTION, payload: { name: name, value: value } } }
 
+export const mailSent = () => { return { type: formTypes.MAIL_SENT } }
 
 export const findAverage = (arr) => {
     let companyMap = new Map()
