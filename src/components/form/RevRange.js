@@ -46,6 +46,10 @@ const RevRange = () => {
 
     return (
         <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} rev-range`}>
+            {formState.revRange && formState.step !== stepNumber ?
+                <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
+                :
+                null}
             <h3>מה הוא מחזור העסקאות</h3>
 
             {formState.revRange && formState.step !== stepNumber ? <><p>{formState.revRange}</p><button className='again' onClick={handleChoseAgain}> בחר שוב</button></>

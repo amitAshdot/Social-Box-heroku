@@ -70,6 +70,10 @@ const Vendor = () => {
     return (
 
         <div className={`form-step ${formState.step === stepNumber ? 'active' : 'chose'} vendor`}>
+            {formState.vendor && formState.step !== stepNumber ?
+                <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
+                :
+                null}
             <h3>יאללה מתחילים!<br />
                 האם יש לך מספר ספק מחברת האשראי? </h3>
 

@@ -48,6 +48,10 @@ const Industry = () => {
     return (
 
         <div className={`form-step ${formState.step === stepNumber ? 'active' : stepExtraClass} `}>
+            {formState.industry && formState.step !== stepNumber ?
+                <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
+                :
+                null}
             <h3>סוג העסק</h3>
             {formState.industry && formState.step !== stepNumber ? <><p>{formState.industry}</p><button className='again' onClick={handleChoseAgain}> בחר שוב</button></>
                 :

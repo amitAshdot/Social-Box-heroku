@@ -37,9 +37,11 @@
         &.active {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            justify-content: space-around;
-            height: 48rem;
+            justify-content: flex-start;
+
+            // height: 35rem;
+            // height: 38rem;
+            height: auto;
             width: 100%;
 
             background: #fff;
@@ -47,6 +49,10 @@
             padding: 1% 0%;
             transition: 0.5s all;
 
+            & .next {
+                display: inline-block;
+                z-index: 5;
+            }
         }
 
         &.chose {
@@ -64,9 +70,15 @@
             }
         }
 
+        & .next {
+            display: none;
+        }
+
         &-buttons {
             display: flex;
             flex-wrap: wrap;
+            margin-block-start: 2rem;
+            margin-block-end: 2rem;
 
             &.option {
                 justify-content: center;
@@ -106,7 +118,6 @@
 
                             @include respond(min-tab-port) {
                                 font-size: 1.7rem;
-
                             }
                         }
                     }
@@ -133,11 +144,17 @@
             }
         }
 
+        svg.svg-inline--fa.fa-circle-check.step-num {
+            position: absolute;
+            right: 0;
+            transform: translateX(-50%);
+            color: $color-primary;
+        }
     }
 }
 
 button {
-    @include global-btn($color-primary, $color-white, $color-primary);
+    @include global-btn($color-primary, $color-white, $color-white);
 
     cursor: pointer;
     border: 1px solid $color-primary;
@@ -165,13 +182,7 @@ button {
 
     &:hover,
     &.active {
-        // box-shadow: 0 0px 9px 2px rgba(0, 0, 0, .6);
-        // border: 3px solid $color-primary;
-        // cursor: pointer;
-        // box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .4);
-        // transform: scale(1.015);
         cursor: pointer;
-        // transform: scale(1);
         background: #361FCC;
         color: white;
         transform: scale(1);
@@ -223,6 +234,7 @@ button {
     }
 
     &.next {
+        display: inline-block;
         border: none;
         width: 10rem;
         height: auto;
@@ -231,6 +243,8 @@ button {
         box-shadow: none;
 
         @include global-btn(white, $color-primary, $color-primary);
+        position: fixed;
+        bottom: 10px;
 
         &:hover {
             transform: scale(1);
@@ -469,6 +483,8 @@ button {
                         opacity: 1;
                     }
                 }
+
+
             }
 
             &-deatils {
@@ -484,6 +500,13 @@ button {
                 line-height: 1.5rem;
                 transition: all 0.3s;
 
+                &:empty {
+                    display: none;
+
+                    &~.referral-info-text {
+                        display: none;
+                    }
+                }
             }
         }
 
