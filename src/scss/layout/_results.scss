@@ -4,12 +4,22 @@
     // right: 0;
     // width: 100vw;
     // height: 100vh;
+    position: relative;
+
     background: #6e7da8d6;
 
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+    display: flex;
+    flex-direction: column;
+
+    .close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
 
     & div {
         background: $color-primary;
@@ -19,5 +29,11 @@
     .btn {
         padding: 1rem;
         margin: 1rem;
+    }
+
+    .referral-btn {
+        position: relative;
+        @include global-btn(white, $color-primary, white);
+        border-radius: 10rem;
     }
 }
