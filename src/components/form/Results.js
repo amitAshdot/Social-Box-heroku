@@ -15,7 +15,7 @@ const Results = ({ industryeArr }) => {
     const dataState = useSelector(state => state.dataReducer);
 
     useEffect(() => {
-        dispatch(findAverage(industryeArr))
+        dispatch(findAverage(industryeArr));
     }, [])
 
     const handleClose = (e) => {
@@ -23,16 +23,17 @@ const Results = ({ industryeArr }) => {
         dispatch(closeResults())
     }
 
-    const createRefferalLinks = dataState.referralLinks.map((referral, key) => {
-        return (<Link to={referral.link} className="btn referral" key={key}> {referral.company}</Link>)
-    })
+    const createRefferalLinks = formState.vendor === '1' ?
+        formState.avgArr.map(element => { return <div><p>Name:{element.name}</p><p>Avg:{element.avg}</p></div> })
+        :
+        dataState.referralLinks.map((referral, key) => {
+            return (<Link to={referral.link} className="btn referral" key={key}> {referral.company}</Link>)
+        })
+
     return (
         <div className='results'>
             <button onClick={handleClose}>CLOSE</button>
-            {formState.vendor === '1' ? (formState.avgArr.map(element => <div><p>Name:{element.name}</p><p>Avg:{element.avg}</p></div>))
-                :
-                <>{createRefferalLinks}</>
-            }
+            {createRefferalLinks}
         </div>
     )
 }

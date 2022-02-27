@@ -28,7 +28,13 @@ const GeneralForm = () => {
             <RevRange />
             {/* <ChoseType /> */}
             {/* {formState.step === 5 ? <Results industryeArr={industryeArr} /> : null} */}
-            {formState.step === 5 ? <ResultsArr /> : null}
+            {formState.step === 5 ?
+                formState.vendor === '1' ?
+                    <Results industryeArr={industryeArr} />
+                    :
+                    <ResultsArr />
+                :
+                null}
             {/* <Results industryeArr={industryeArr} /> */}
         </>
     )
