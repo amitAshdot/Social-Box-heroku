@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Industry from '../Industry';
 import Results from '../Results'
 import ResultsArr from '../../results/ResultsArr';
-
 const GeneralForm = () => {
     const formState = useSelector(state => state.formReducer);
     const dataState = useSelector(state => state.dataReducer);

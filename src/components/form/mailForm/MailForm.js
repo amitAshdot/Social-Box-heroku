@@ -3,6 +3,7 @@ import emailjs from 'emailjs-com';
 import { useDispatch, useSelector } from 'react-redux';
 import { mailSent, toggleMailForm } from '../../../store/form/action';
 
+import MailSentLottie from '../../lottie/MailSentLottie';
 
 // import { init } from '@emailjs/browser';
 // init("user_vDUBQd87BDiQhmE7iy0Cf");
@@ -52,8 +53,9 @@ const MailForm = () => {
         </p>
         {formState.mailSent ?
           <>
-            <FontAwesomeIcon icon={faPaperPlane} />
-            <FontAwesomeIcon className='sent' icon={faCheckCircle} />
+            {/* <FontAwesomeIcon icon={faPaperPlane} />
+            <FontAwesomeIcon className='sent' icon={faCheckCircle} /> */}
+            <MailSentLottie />
           </>
           :
           <div className='inputs'>
