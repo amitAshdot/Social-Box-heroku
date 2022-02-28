@@ -11,7 +11,7 @@ import MailSentLottie from '../../lottie/MailSentLottie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faPaperPlane, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
-const MailForm = () => {
+const MailForm = ({ url }) => {
   const formState = useSelector(state => state.formReducer);
   // const dataState = useSelector(state => state.dataReducer);
   const dispatch = useDispatch();
@@ -21,6 +21,9 @@ const MailForm = () => {
     emailjs.sendForm('service_royue7n', 'template_z241xon', e.target, 'user_vDUBQd87BDiQhmE7iy0Cf')
       .then((result) => {
         dispatch(mailSent())
+        if (formState.vendor !== '1')
+          window.open(url, '_blank').focus();
+
         console.log(result.text);
       }, (error) => {
         console.log(error.text);
@@ -34,6 +37,16 @@ const MailForm = () => {
       dispatch(toggleMailForm(false))
   }
 
+  const contentObj = formState.vendor === '1' ?
+    {
+      title: 'השאר פרטים בטופס מטה ונציג יחזור אליך בהקדם',
+      btnValue: 'צרו איתי קשר'
+    } :
+    {
+      title: 'בוא נתחיל! ',
+      btnValue: 'לשלב הבא'
+    }
+
   return (formState.mailForm ?
     <div className='contact-container'  >
       <form className="contact-form" onSubmit={sendEmail}>
@@ -45,18 +58,24 @@ const MailForm = () => {
         <input type="hidden" name="revRange" value={formState.revRange ? formState.revRange : ''} />
         <input type="hidden" name="type" value={formState.type ? formState.type : ''} />
 
-        <p>השאר פרטים בטופס מטה ונציג יחזור אליך בהקדם</p>
+        {formState.vendor !== '1' ?
+          <div className='step-container'>
+            <div className='step-one'>
+              1
+            </div>
+          </div>
+          : null}
+
+        <p>{contentObj.title}</p>
+
+        <img src={formState.currentCompany.imgUrl} alt={formState.currentCompany.brand} />
         <p className="taknonbox">
           שליחת הפרטים מהווה אישור
           <a href="https://check-box.co.il/privacy-policy/" target="_blank" rel="noreferrer"> תקנון </a>
           האתר
         </p>
         {formState.mailSent ?
-          <>
-            {/* <FontAwesomeIcon icon={faPaperPlane} />
-            <FontAwesomeIcon className='sent' icon={faCheckCircle} /> */}
-            <MailSentLottie />
-          </>
+          <MailSentLottie />
           :
           <div className='inputs'>
             <div className='inputs-top'>
@@ -67,7 +86,7 @@ const MailForm = () => {
             <div className='inputs-bottom'>
               <input type="tel" name="phone" placeholder="טלפון" />
 
-              <input type="submit" value="צרו איתי קשר" />
+              <input type="submit" value={contentObj.btnValue} />
             </div>
 
           </div>

@@ -12,6 +12,7 @@ const initState = {
     step: 1,
     mailForm: false,
     mailSent: false,
+    currentCompany: {}
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -71,6 +72,10 @@ export default function (state = initState, action) {
                 return { ...state, step: 5 }
             else
                 return { ...state, avgArr: payload }
+
+
+        case formTypes.SET_CURRENT_COMPANY:
+            return { ...state, currentCompany: payload }
 
         case formTypes.SET_OPTION:
             const { name, value } = payload

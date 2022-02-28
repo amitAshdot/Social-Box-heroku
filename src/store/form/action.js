@@ -32,9 +32,11 @@ export const setStepUp = (step) => { return { type: formTypes.SET_STEP_UP, paylo
 
 export const setStepDown = (step) => { return { type: formTypes.SET_STEP_DOWN, payload: step } }
 
-export const closeResults = () => { return { type: formTypes.CLOSE_RESULTS } }
-
 export const setOption = (name, value) => { return { type: formTypes.SET_OPTION, payload: { name: name, value: value } } }
+
+export const setCurrentCompany = (value) => { return { type: formTypes.SET_CURRENT_COMPANY, payload: value } }
+
+export const closeResults = () => { return { type: formTypes.CLOSE_RESULTS } }
 
 export const mailSent = () => { return { type: formTypes.MAIL_SENT } }
 

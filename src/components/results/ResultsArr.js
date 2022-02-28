@@ -5,10 +5,9 @@ import React, { useEffect } from 'react'
 // import Select from '../form1/Select'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleMailForm } from '../../store/form/action';
+import { toggleMailForm, setCurrentCompany } from '../../store/form/action';
 
 // import GeneralForm from '../form/general/GeneralForm';
-// import MailForm from '../form/mailForm/MailForm';
 // import Result from '../results/Result'
 import { Link } from 'react-router-dom'
 
@@ -25,6 +24,11 @@ const ResultsArr = () => {
     const handleToggle = (e) => {
         e.preventDefault();
         dispatch(toggleMailForm(!formState.mailForm))
+        const brand = e.target.getAttribute('brand')
+        const imgUrl = e.target.getAttribute('imgUrl')
+        const referralLink = e.target.getAttribute('referralLink')
+        dispatch(setCurrentCompany({ brand: brand, imgUrl: imgUrl, referralLink: referralLink }))
+
     }
 
     useEffect(() => { }, [])
@@ -69,9 +73,9 @@ const ResultsArr = () => {
                 <p className='referral-info-deatils'>{item.comments}</p>
             </div>
             <div className='referral-btn' >
-                <Link to="#" className='referral-btn btn' onClick={handleToggle}>
+                <Link to="#" className='referral-btn btn' onClick={handleToggle} brand={item.brand} imgUrl={item.image} referralLink='#' >
                     {`להתחלת סליקה `}
-                    {/* <FontAwesomeIcon className='check' icon={faChevronCircleLeft} /> */}
+
                     <FontAwesomeIcon className='check' icon={faAngleLeft} />
                 </Link>
             </div>

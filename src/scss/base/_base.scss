@@ -54,9 +54,14 @@ body {
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+  min-height: 100vh;
 
   @include respond(tab-port) {
     // padding: 0;
+  }
+
+  @include respond(min-tab-port) {
+    min-height: 100vh;
   }
 
   // @include respond(min-biggest) {

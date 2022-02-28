@@ -1,21 +1,33 @@
 .form {
     font-family: 'almoni-tzar';
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
     button {
         border: 1px solid $color-primary;
     }
 
     &-step {
-        height: 130px;
+        // height: 130px;
+
+        // height: auto;
         transition: 0.5s all;
 
-        background: #f7f7f7;
+        // background: #f7f7f7;
+        background: transparent;
         border: 1px solid $color-primary;
         margin-bottom: 2%;
         padding: 1% 0%;
         text-align: center;
         align-items: center;
         width: 100%;
+        height: auto;
+        max-height: 10rem;
+
+        @include respond(min-tab-port) {
+            max-height: 10rem;
+        }
 
         &>h3 {
             font-family: 'almoni-tzar';
@@ -39,15 +51,20 @@
             flex-direction: column;
             justify-content: flex-start;
 
-            // height: 35rem;
-            // height: 38rem;
             height: auto;
-            width: 100%;
-
-            background: #fff;
+            // background: #fff;
+            background: transparent;
             margin-bottom: 2%;
             padding: 1% 0%;
             transition: 0.5s all;
+
+            transform: rotate(1);
+
+            max-height: 38rem;
+
+            @include respond(min-tab-port) {
+                max-height: 48rem;
+            }
 
             & .next {
                 display: inline-block;
@@ -332,8 +349,46 @@ button {
             animation-fill-mode: forwards;
         }
 
+        .step-container {
+            position: absolute;
+            width: 11rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(2px 3px 3px black);
+            top: 2rem;
+
+            &:after {
+                content: "";
+                width: 250%;
+                height: 0.2rem;
+                background: white;
+                position: absolute;
+                z-index: -1;
+            }
+        }
+
+        .step-one {
+            background: white;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            font-size: 1.5rem;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
         &>p {
             padding: 0rem 2rem;
+        }
+
+
+        &>img {
+            background: white;
+            padding: 0.5rem;
         }
 
         .taknonbox {
@@ -342,6 +397,11 @@ button {
 
             @include respond(min-tab-port) {
                 font-size: 1rem;
+            }
+
+            &>a {
+                color: white;
+                text-decoration: none;
             }
         }
 
