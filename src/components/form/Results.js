@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 // import Industry from './Industry';
 import { closeResults, findAverage, toggleMailForm } from '../../store/form/action';
-import { faCheckCircle, faPaperPlane, faPercent, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faPaperPlane, faPercent, faShekelSign, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Results = ({ industryeArr }) => {
@@ -43,7 +43,12 @@ const Results = ({ industryeArr }) => {
                 {element.avg.toFixed(2)}
                 %
             </p>
-            <p>₪ מחזור חודשי:₪{formState.revRange} </p>
+            <p>
+                <FontAwesomeIcon className="icon" icon={faShekelSign} />
+                מחזור חודשי:
+                {formState.revRange}
+                <FontAwesomeIcon className="icon" icon={faShekelSign} />
+            </p>
             <div className='referral-logo'>
                 <img defer src={element.image} alt={element.name} width="12" height="50" />
             </div>
