@@ -52,7 +52,7 @@ export const findAverage = (arr) => {
     const finaleListArr = []
     companyMap.forEach((values, keys) => {
 
-        finaleListArr.push({ avg: (values.comission / values.amountToSub), name: values.company, img: logoUrlObj[values.company] })
+        finaleListArr.push({ avg: (values.comission / values.amountToSub), name: values.company, img: logoUrlObj[values.company], amountToSub: values.amountToSub })
     });
 
     return { type: formTypes.SET_AVERAGE_COMMISION, payload: finaleListArr }

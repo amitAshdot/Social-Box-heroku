@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 // import Industry from './Industry';
 import { closeResults, findAverage, toggleMailForm } from '../../store/form/action';
-import { faCheckCircle, faPaperPlane, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faPaperPlane, faPercent, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Results = ({ industryeArr }) => {
@@ -32,13 +32,23 @@ const Results = ({ industryeArr }) => {
         dispatch(toggleMailForm(!formState.mailForm))
     }
     const createRefferalLinks = formState.vendor === '1' ?
-        formState.avgArr.map(element =>
-        (<div>
-            <p>Name:{element.name}</p>
-            <p>Avg:{element.avg}</p>
+        formState.avgArr.map((element, key) =>
+        (<div className='item' key={key}>
+            <h3>{element.name}</h3>
+
+            <p className='item-commision'>
+                <FontAwesomeIcon className="icon" icon={faPercent} />
+                ממוצע עמלה:
+                {/* <FontAwesomeIcon className="icon" icon={faPercent} /> */}
+                {element.avg.toFixed(2)}
+                %
+            </p>
+            <p>₪ מחזור חודשי:₪{formState.revRange} </p>
             <div className='referral-logo'>
                 <img defer src={element.image} alt={element.name} width="12" height="50" />
             </div>
+            <p className='item-compare'>מספר תוצאות במדד:{element.amountToSub}</p>
+
         </div>)
         )
         :
@@ -51,16 +61,17 @@ const Results = ({ industryeArr }) => {
 
             <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} />
 
-            {createRefferalLinks}
+            <div className='results-items'>
+                {createRefferalLinks}
+
+            </div>
 
 
-            {/* <div className='referral-btn' > */}
+
             <Link to="#" className='referral-btn btn' onClick={handleToggle}>
                 {`להתחלת סליקה `}
-                {/* <FontAwesomeIcon className='check' icon={faChevronCircleLeft} /> */}
-                {/* <FontAwesomeIcon className='check' icon={faAngleLeft} /> */}
             </Link>
-            {/* </div> */}
+
         </div>
     )
 }
