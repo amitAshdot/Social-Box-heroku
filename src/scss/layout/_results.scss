@@ -25,11 +25,21 @@
         display: flex;
         justify-content: space-evenly;
         width: 100%;
+        flex-direction: column;
+
+        @include respond(min-tab-port) {
+            flex-direction: row;
+        }
 
         & .item {
 
             background-color: white;
             box-shadow: -1px -2px #00000070;
+            margin: 1rem 0;
+
+            @include respond(min-tab-port) {
+                margin: 0 0rem;
+            }
 
             h3 {
                 margin-block-end: 1rem;
