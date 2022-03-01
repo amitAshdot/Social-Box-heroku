@@ -10,7 +10,15 @@ import { closeResults, findAverage, toggleMailForm } from '../../store/form/acti
 import { faPercent, faShekelSign, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Slider from "react-slick";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
+// import Swiper styles
+import 'swiper/css';
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const Results = ({ industryeArr }) => {
     const dispatch = useDispatch();
@@ -35,9 +43,11 @@ const Results = ({ industryeArr }) => {
     }
     const createRefferalLinks = formState.vendor === '1' ?
         formState.avgArr.map((element, key) =>
-        (<div className='item' key={key}>
+        (<SwiperSlide className='item' key={key}>
             <h3>{element.name}</h3>
-
+            <div className='referral-logo'>
+                <img defer src={element.image} alt={element.name} width="12" height="50" />
+            </div>
             <p className='item-commision'>
                 <FontAwesomeIcon className="icon" icon={faPercent} />
                 ממוצע עמלה:
@@ -51,12 +61,12 @@ const Results = ({ industryeArr }) => {
                 {formState.revRange}
                 <FontAwesomeIcon className="icon" icon={faShekelSign} />
             </p>
-            <div className='referral-logo'>
-                <img defer src={element.image} alt={element.name} width="12" height="50" />
-            </div>
-            <p className='item-compare'>מספר תוצאות במדד:{element.amountToSub}</p>
 
-        </div>)
+            <p className='item-compare'>מספר תוצאות במדד:{element.amountToSub}</p>
+            <Link to="#" className='referral-btn btn' onClick={handleToggle}>
+                {`להתחלת סליקה `}
+            </Link>
+        </SwiperSlide>)
         )
         :
         dataState.referralLinks.map((referral, key) => {
@@ -64,33 +74,40 @@ const Results = ({ industryeArr }) => {
         })
 
 
-    const settings = {
-        dots: true,
-        infinite: true,
 
-        rtl: true,
-        speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 1
-    };
     return (
         <div className='results'>
 
-            <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} />
+            {/* <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} /> */}
 
             <div className='results-items'>
-                <Slider {...settings}>
+                <Swiper
+                    dir="rtl"
+                    navigation={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[Navigation, Pagination]}
+                    className="mySwiper"
+
+                    breakpoints={{
+                        "@0.00": {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        "@0.75": {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        "@1.00": {
+                            slidesPerView: 3.3,
+                            spaceBetween: 20,
+                        },
+                    }}
+                >
                     {createRefferalLinks}
-
-                </Slider>
+                </Swiper>
             </div>
-
-
-
-            <Link to="#" className='referral-btn btn' onClick={handleToggle}>
-                {`להתחלת סליקה `}
-            </Link>
-
         </div>
     )
 }

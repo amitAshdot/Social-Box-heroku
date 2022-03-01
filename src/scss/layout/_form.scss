@@ -640,11 +640,6 @@ button {
 
 }
 
-.alice-carousel {
-    direction: ltr !important;
-
-}
-
-.alice-carousel__wrapper {
-    direction: ltr !important;
+.swiper-wrapper {
+    overflow: initial;
 }
