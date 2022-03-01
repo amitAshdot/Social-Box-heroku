@@ -7,8 +7,10 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 // import Industry from './Industry';
 import { closeResults, findAverage, toggleMailForm } from '../../store/form/action';
-import { faCheckCircle, faPaperPlane, faPercent, faShekelSign, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPercent, faShekelSign, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import Slider from "react-slick";
 
 const Results = ({ industryeArr }) => {
     const dispatch = useDispatch();
@@ -61,14 +63,26 @@ const Results = ({ industryeArr }) => {
             return (<Link to={referral.link} className="btn referral" key={key}> {referral.company}</Link>)
         })
 
+
+    const settings = {
+        dots: true,
+        infinite: true,
+
+        rtl: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 1
+    };
     return (
         <div className='results'>
 
             <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} />
 
             <div className='results-items'>
-                {createRefferalLinks}
+                <Slider {...settings}>
+                    {createRefferalLinks}
 
+                </Slider>
             </div>
 
 

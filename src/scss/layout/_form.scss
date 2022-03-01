@@ -467,6 +467,7 @@ button {
     justify-content: space-evenly;
 }
 
+
 .result-referral {
     position: relative;
     display: flex;
@@ -476,7 +477,8 @@ button {
     margin-block-start: 1rem;
     margin-block-end: 1rem;
     background: white;
-    width: 27rem;
+    // width: 27rem;
+    width: 97%;
     border-radius: 5px;
     // position: relative;
     padding: 1.5rem;
@@ -636,4 +638,13 @@ button {
         }
     }
 
+}
+
+.alice-carousel {
+    direction: ltr !important;
+
+}
+
+.alice-carousel__wrapper {
+    direction: ltr !important;
 }
