@@ -66,14 +66,10 @@ const MailForm = ({ url }) => {
           </div>
           : null}
 
-        <p>{contentObj.title}</p>
+        <p className='contact-form-title'>{contentObj.title}</p>
 
         <img src={formState.currentCompany.imgUrl} alt={formState.currentCompany.brand} />
-        <p className="taknonbox">
-          שליחת הפרטים מהווה אישור
-          <a href="https://check-box.co.il/privacy-policy/" target="_blank" rel="noreferrer"> תקנון </a>
-          האתר
-        </p>
+
         {formState.mailSent ?
           <MailSentLottie />
           :
@@ -88,7 +84,11 @@ const MailForm = ({ url }) => {
 
               <input type="submit" value={contentObj.btnValue} />
             </div>
-
+            <p className="taknonbox">
+              שליחת הפרטים מהווה אישור
+              <a href="https://check-box.co.il/privacy-policy/" target="_blank" rel="noreferrer"> תקנון </a>
+              האתר
+            </p>
           </div>
         }
 

@@ -314,26 +314,18 @@ button {
         z-index: 6;
         // width: 96%;
         color: #fff;
-        padding: 7rem 1rem 1rem;
+        padding: 4rem 1rem 1rem;
         border-radius: 7px;
         border: 2px solid black;
         filter: drop-shadow(1px 3px 9px black);
         height: 100%;
         // justify-content: center;
+        font-family: "almoni-tzar",
+            sans-serif;
+        width: 100%;
 
         @include respond(min-tab-port) {
             padding: 5rem;
-        }
-
-        svg.svg-inline--fa.fa-paper-plane {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(2) rotate(39deg);
-
-            animation: yellow 3s;
-            animation-fill-mode: forwards;
-
         }
 
         svg.svg-inline--fa.sent {
@@ -355,17 +347,17 @@ button {
             display: flex;
             justify-content: center;
             align-items: center;
-            filter: drop-shadow(2px 3px 3px black);
+            // filter: drop-shadow(2px 3px 3px black);
             top: 2rem;
 
-            &:after {
-                content: "";
-                width: 250%;
-                height: 0.2rem;
-                background: white;
-                position: absolute;
-                z-index: -1;
-            }
+            // &:after {
+            //     content: "";
+            //     width: 250%;
+            //     height: 0.2rem;
+            //     background: white;
+            //     position: absolute;
+            //     z-index: -1;
+            // }
         }
 
         .step-one {
@@ -381,6 +373,11 @@ button {
             position: relative;
         }
 
+        &-title {
+            font-size: 5rem;
+            line-height: 5rem;
+        }
+
         &>p {
             padding: 0rem 2rem;
         }
@@ -390,13 +387,16 @@ button {
             background: white;
             padding: 0.5rem;
             max-width: 10rem;
+            width: 10rem;
             border-radius: 10px;
             height: 4rem;
+            object-fit: contain;
         }
 
         .taknonbox {
             margin: 0.21rem 0;
             font-size: 0.8rem;
+            text-align: center;
 
             @include respond(min-tab-port) {
                 font-size: 1rem;
@@ -412,6 +412,7 @@ button {
             display: flex;
             flex-direction: column;
             margin: 1rem 0;
+            width: 100%;
 
             &-top,
             &-bottom {
@@ -421,15 +422,21 @@ button {
 
             & input {
                 direction: rtl;
-                text-align: center;
-                width: 100%;
+                text-align: right;
                 color: #000;
-                border-radius: 180px;
                 padding: 8px 10px;
                 box-shadow: none;
-                border-bottom: 2px solid;
                 margin-block: 0.4rem;
                 font-size: 1.8rem;
+                font-family: "almoni-tzar",
+                    sans-serif;
+                width: 100%;
+                padding-inline-start: 1.5rem;
+                background: transparent;
+                border: none;
+                border-bottom: 2px solid white;
+                border-radius: 0;
+                color: white;
 
                 @include respond(min-tab-port) {
                     font-size: 2rem;
@@ -437,9 +444,15 @@ button {
             }
 
             input[type="submit"] {
-                background: #5eb864;
-                color: white;
+                color: black;
                 border: 3px solid white;
+                text-align: center;
+                font-weight: bold;
+                font-size: 2.5rem;
+                padding: 0;
+                margin-block-start: 2rem;
+                background: white;
+                border-radius: 10rem;
             }
 
             // input[type="url"],
@@ -481,7 +494,7 @@ button {
     width: 97%;
     border-radius: 5px;
     // position: relative;
-    padding: 1.5rem;
+    padding: 1.5rem 2.5rem;
 
     @include respond(min-tab-port) {
         padding: 2rem;
@@ -525,7 +538,7 @@ button {
             padding: 0.4rem;
             border-radius: 5px;
 
-            width: 11.5rem;
+            width: 10.8rem;
             margin-inline-start: 0;
             margin-inline-end: 0;
 
@@ -551,7 +564,7 @@ button {
             margin-block-start: 1rem;
             margin-inline-start: 0rem;
             margin-inline-end: 0rem;
-            margin-block-end: 1rem;
+            margin-block-end: 1.52rem;
 
             @include respond(min-tab-port) {
                 margin-inline-start: 1rem;
@@ -575,11 +588,13 @@ button {
 
             &-text {
                 width: 60%;
+                text-align: right;
             }
 
             &-number {
                 width: 40%;
-                text-align: center;
+                text-align: left;
+
             }
         }
 
@@ -623,6 +638,7 @@ button {
 
         &-btn {
             display: flex;
+            font-family: almoni-tzar, sans-serif;
 
             .btn {
                 @include global-btn(white, $color-primary, $color-primary);
@@ -632,8 +648,11 @@ button {
                 padding: 0.8rem;
                 border-radius: 10rem;
                 box-shadow: none;
-                font-size: 1rem;
-                line-height: 1.2rem;
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                display: flex;
+                justify-content: space-around;
+                align-self: center;
             }
         }
     }

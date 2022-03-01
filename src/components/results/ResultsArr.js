@@ -36,8 +36,8 @@ const ResultsArr = () => {
         e.preventDefault();
         dispatch(toggleMailForm(!formState.mailForm))
         const brand = e.target.getAttribute('brand')
-        const imgUrl = e.target.getAttribute('imgUrl')
-        const referralLink = e.target.getAttribute('referralLink')
+        const imgUrl = e.target.getAttribute('img-url')
+        const referralLink = e.target.getAttribute('referral-link')
         dispatch(setCurrentCompany({ brand: brand, imgUrl: imgUrl, referralLink: referralLink }))
 
     }

@@ -105,6 +105,15 @@
     align-items: center;
 }
 
+.swiper-button {
+
+    &-prev,
+    &-next {
+        color: $color-black !important;
+    }
+
+}
+
 .swiper-slide img {
     display: block;
     width: 100%;
