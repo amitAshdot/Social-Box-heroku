@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 // import ChoseType from './ChoseType'
 // import RevRange from './RevRange'
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 // import Industry from './Industry';
 import { closeResults, findAverage, toggleMailForm } from '../../store/form/action';
-import { faPercent, faShekelSign, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPercent, faShekelSign } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -31,10 +31,10 @@ const Results = ({ industryeArr }) => {
         dispatch(findAverage(industryeArr));
     }, [])
 
-    const handleClose = (e) => {
-        e.preventDefault();
-        dispatch(closeResults())
-    }
+    // const handleClose = (e) => {
+    //     e.preventDefault();
+    //     dispatch(closeResults())
+    // }
 
 
     const handleToggle = (e) => {

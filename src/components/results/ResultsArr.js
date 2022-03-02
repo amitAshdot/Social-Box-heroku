@@ -39,7 +39,6 @@ const ResultsArr = () => {
         const imgUrl = e.target.getAttribute('img-url')
         const referralLink = e.target.getAttribute('referral-link')
         dispatch(setCurrentCompany({ brand: brand, imgUrl: imgUrl, referralLink: referralLink }))
-
     }
 
     useEffect(() => { }, [])

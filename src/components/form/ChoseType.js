@@ -88,6 +88,28 @@ const ChoseType = () => {
         e.preventDefault();
         dispatch(setStepUp(formState.step + 1))
         dispatch(setType(chosenType))
+
+        // var first_name = document.getElementsByName("first_name")[0].value,
+        //     score = document.getElementsByName("score")[0].value;
+        var data = {
+            name: 'test',
+            score: 'test'
+        };
+        debugger
+        fetch("https://sheets.googleapis.com/v4/spreadsheets/1vWndKZBKA4IO8JqkDlImqBmH7MyzaqQwnvw8sAA5u0E/values/test!A1:E1:append?id=1&name=amit&score=10", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify([
+                ["Door", "$15", "2", "3/15/2016"],
+                ["Engine", "$100", "1", "3/20/2016"],
+            ])
+        }).then(res => {
+            console.log("Request complete! response:", res);
+        }).catch(err => {
+            console.log('err idiot')
+
+        })
+
     }
     const stepExtraClass = formState.step > stepNumber ? 'chose' : ''
 

@@ -9,7 +9,7 @@ import MailSentLottie from '../../lottie/MailSentLottie';
 // init("user_vDUBQd87BDiQhmE7iy0Cf");
 // import config from '../../../.config.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faPaperPlane, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 const MailForm = ({ url }) => {
   const formState = useSelector(state => state.formReducer);

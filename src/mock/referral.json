@@ -10,7 +10,9 @@
     "plugin": "",
     "comments": "הכסף אצלך בחשבון כל יום רביעי\nכולל זיכוי שבועי גם על תשלומים\n19 ₪ בחודש על דף תשלום ותוסף סליקה",
     "brand": "מקס",
-    "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg"
+    "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
+    "size":"small",
+    "rating": [3,true]
   },
   {
     "post_title": "מסלול בעמלה מועדפת",
