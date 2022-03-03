@@ -7,6 +7,8 @@ const initState = {
     revRange: null,
     type: null,
 
+    error: null,
+
     avgArr: [],
     referralLinks: [],
     step: 1,
@@ -83,6 +85,9 @@ export default function (state = initState, action) {
                 return { ...state, step: 5 }
             else
                 return { ...state, name: value }
+
+        case formTypes.SET_ERROR:
+            return { ...state, error: payload }
 
         case formTypes.CLOSE_RESULTS:
             return { ...state, step: 8 }

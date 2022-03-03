@@ -1,4 +1,4 @@
-import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faCircleCheck, faPencil, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -91,24 +91,24 @@ const ChoseType = () => {
 
         // var first_name = document.getElementsByName("first_name")[0].value,
         //     score = document.getElementsByName("score")[0].value;
-        var data = {
-            name: 'test',
-            score: 'test'
-        };
-        debugger
-        fetch("https://sheets.googleapis.com/v4/spreadsheets/1vWndKZBKA4IO8JqkDlImqBmH7MyzaqQwnvw8sAA5u0E/values/test!A1:E1:append?id=1&name=amit&score=10", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify([
-                ["Door", "$15", "2", "3/15/2016"],
-                ["Engine", "$100", "1", "3/20/2016"],
-            ])
-        }).then(res => {
-            console.log("Request complete! response:", res);
-        }).catch(err => {
-            console.log('err idiot')
+        // var data = {
+        //     name: 'test',
+        //     score: 'test'
+        // };
+        // debugger
+        // fetch("https://sheets.googleapis.com/v4/spreadsheets/1vWndKZBKA4IO8JqkDlImqBmH7MyzaqQwnvw8sAA5u0E/values/test!A1:E1:append?id=1&name=amit&score=10", {
+        //     method: "POST",
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify([
+        //         ["Door", "$15", "2", "3/15/2016"],
+        //         ["Engine", "$100", "1", "3/20/2016"],
+        //     ])
+        // }).then(res => {
+        //     console.log("Request complete! response:", res);
+        // }).catch(err => {
+        //     console.log('err idiot')
 
-        })
+        // })
 
     }
     const stepExtraClass = formState.step > stepNumber ? 'chose' : ''
@@ -129,7 +129,10 @@ const ChoseType = () => {
             {formState.step !== stepNumber ?
                 <>
                     <p>{chosenType ? btnArr[chosenType - 1].bottomText : null}</p>
-                    <button className='again' onClick={handleChoseAgain}> בחר שוב</button>
+                    <button className='again' onClick={handleChoseAgain}>
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                        בחר שוב
+                    </button>
                 </>
                 :
                 <>

@@ -36,6 +36,8 @@ export const setOption = (name, value) => { return { type: formTypes.SET_OPTION,
 
 export const setCurrentCompany = (value) => { return { type: formTypes.SET_CURRENT_COMPANY, payload: value } }
 
+export const setError = (value) => { return { type: formTypes.SET_ERROR, payload: value } }
+
 export const closeResults = () => { return { type: formTypes.CLOSE_RESULTS } }
 
 export const mailSent = () => { return { type: formTypes.MAIL_SENT } }

@@ -1,7 +1,7 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
 import { useDispatch, useSelector } from 'react-redux';
-import { mailSent, toggleMailForm } from '../../../store/form/action';
+import { mailSent, toggleMailForm, setError } from '../../../store/form/action';
 
 import MailSentLottie from '../../lottie/MailSentLottie';
 
@@ -15,19 +15,52 @@ const MailForm = ({ url }) => {
   const formState = useSelector(state => state.formReducer);
   // const dataState = useSelector(state => state.dataReducer);
   const dispatch = useDispatch();
+  const ValidateEmail = (mail) => {
+    return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) ? true : false
+  }
+  const phonenumber = (inputtxt) => { debugger; return inputtxt.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/) ? true : false; }
+
+  const changeStyle = (element, color) => { element.style.borderBottom = color; }
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_royue7n', 'template_z241xon', e.target, 'user_vDUBQd87BDiQhmE7iy0Cf')
-      .then((result) => {
-        dispatch(mailSent())
-        if (formState.vendor !== '1')
-          window.open(url, '_blank').focus();
+    dispatch(setError(null));
+    changeStyle(document.getElementsByName('user_name')[0], `2px solid white`);
+    changeStyle(document.getElementsByName('user_email')[0], `2px solid white`);
+    changeStyle(document.getElementsByName('phone')[0], `2px solid white`);
 
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
+    const name = document.getElementsByName('user_name')[0].value;
+    const email = document.getElementsByName('user_email')[0].value;
+    const phone = document.getElementsByName('phone')[0].value;
+    let flag = false;
+    if (name.length < 2) {
+      dispatch(setError('error name'));
+      flag = true;
+      changeStyle(document.getElementsByName('user_name')[0], `2px solid red`);
+    }
+    if (!ValidateEmail(email)) {
+      dispatch(setError('error email'));
+      flag = true;
+      changeStyle(document.getElementsByName('user_email')[0], `2px solid red`);
+    }
+    if (!phonenumber(phone)) {
+      dispatch(setError('error phone'));
+      flag = true;
+      changeStyle(document.getElementsByName('phone')[0], `2px solid red`);
+    }
+    if (!flag) {
+      emailjs.sendForm('service_royue7n', 'template_z241xon', e.target, 'user_vDUBQd87BDiQhmE7iy0Cf')
+        .then((result) => {
+          dispatch(mailSent())
+          // if (formState.vendor !== '1')
+          //   window.open(url, '_blank').focus();
+
+          console.log(result.text);
+        }, (error) => {
+          console.log(error.text);
+        });
+    }
+
   }
 
   const handleClose = (e) => {
@@ -92,10 +125,7 @@ const MailForm = ({ url }) => {
           </div>
         }
 
-
         {/* <input type="hidden" name="referralLinks" value={formState.referralLinks} /> */}
-
-        {/* <input type="hidden" name="vendor" value={formState.vendor} /> */}
       </form>
     </div> : null
   )

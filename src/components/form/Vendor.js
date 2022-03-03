@@ -1,4 +1,4 @@
-import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faCircleCheck, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -75,14 +75,18 @@ const Vendor = () => {
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}
-            <h3>יאללה מתחילים!<br />
-                האם יש לך מספר ספק מחברת האשראי? </h3>
+            <h2>יאללה מתחילים!</h2 >
+
+                <h3> האם יש לך מספר ספק מחברת האשראי? </h3>
 
 
             {formState.step !== stepNumber ?
                 <>
                     <p>{options[formState.vendor]}</p>
-                    <button className='again' onClick={handleChoseAgain}> בחר שוב</button>
+                    <button className='again' onClick={handleChoseAgain}>
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                        בחר שוב
+                    </button>
                 </>
                 :
                 <>

@@ -61,6 +61,15 @@
                 height: 5rem;
             }
 
+            .rating {
+                display: flex;
+                flex-direction: row-reverse;
+                *> {
+                    font-size: 1rem;
+                    color: #FFAF22;
+                }
+            }
+
             .icon {
                 font-size: 1rem;
                 margin-inline-start: 0.3rem;

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setIndustry, setStepUp, setStep } from '../../store/form/action';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faCircleCheck, faPencil, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 const Industry = () => {
     const stepNumber = 3;
     const formState = useSelector(state => state.formReducer);
@@ -66,7 +66,10 @@ const Industry = () => {
             {formState.step !== stepNumber ?
                 <>
                     <p>{formState.industry}</p>
-                    <button className='again' onClick={handleChoseAgain}> בחר שוב</button>
+                    <button className='again' onClick={handleChoseAgain}>
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                        בחר שוב
+                    </button>
                 </>
                 :
                 <>

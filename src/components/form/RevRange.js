@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setRevRange, setStepUp, setStep } from '../../store/form/action';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faCircleCheck, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 const RevRange = () => {
 
     const stepNumber = 4
@@ -26,7 +26,26 @@ const RevRange = () => {
 
     }
 
-    const buttons = dataState.range.map((range, key) =>
+    const map = new Map();
+    dataState.data.forEach(item => {
+        if (item.industry === formState.industry) {
+            if (!map.get(item.rev_range))
+                map.set(item.rev_range, item.rev_range)
+        }
+    })
+
+    const filteredArr = dataState.range.filter(item => {
+        console.log(map, item)
+        return map.get(item.range_name) ? true : false
+    })
+
+    const buttons = filteredArr.length && formState.vendor === '1' ? filteredArr.map((range, key) =>
+        <button className={`option ${range.range_name === chosenRevRange ? 'active' : ''}`} onClick={handleClick} value={range.range_name} disabled={formState.step !== stepNumber} key={key}>
+            {range.range_name === chosenRevRange ? <FontAwesomeIcon className='check' icon={faCircleCheck} /> : null}
+
+            {range.range_name}
+        </button>
+    ) : dataState.range.map((range, key) =>
         <button className={`option ${range.range_name === chosenRevRange ? 'active' : ''}`} onClick={handleClick} value={range.range_name} disabled={formState.step !== stepNumber} key={key}>
             {range.range_name === chosenRevRange ? <FontAwesomeIcon className='check' icon={faCircleCheck} /> : null}
 
@@ -59,7 +78,11 @@ const RevRange = () => {
             {formState.step !== stepNumber ?
                 <>
                     <p>{formState.revRange}</p>
-                    <button className='again' onClick={handleChoseAgain}> בחר שוב</button>
+
+                    <button className='again' onClick={handleChoseAgain}>
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                        בחר שוב
+                    </button>
                 </>
                 :
                 <>

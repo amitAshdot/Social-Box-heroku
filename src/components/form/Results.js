@@ -105,7 +105,7 @@ const Results = ({ industryeArr }) => {
                         },
                     }}
                 >
-                    {createRefferalLinks}
+                    {createRefferalLinks.length? createRefferalLinks : 'לא נמצאו תוצאות מתאימות'}
                 </Swiper>
             </div>
         </div>

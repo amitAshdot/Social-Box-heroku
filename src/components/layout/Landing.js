@@ -5,7 +5,6 @@ import Vendor from '../form/Vendor'
 // import Select from '../form1/Select'
 
 import { useSelector } from 'react-redux';
-// import { fetchStart, setRevRange, setType } from '../../store/form/action';
 
 import GeneralForm from '../form/general/GeneralForm';
 import MailForm from '../form/mailForm/MailForm';
