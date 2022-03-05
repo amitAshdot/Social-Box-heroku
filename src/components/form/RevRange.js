@@ -35,7 +35,6 @@ const RevRange = () => {
     })
 
     const filteredArr = dataState.range.filter(item => {
-        console.log(map, item)
         return map.get(item.range_name) ? true : false
     })
 

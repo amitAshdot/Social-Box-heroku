@@ -36,12 +36,9 @@ const ResultsArr = () => {
 
     useEffect(() => { }, [])
 
-    // const [formType, setFormType] = useState(null)
     const filtered = dataState.referralLinks.filter(item => item.type === dataState.type[formState.type]);
 
     const finaleRender = filtered.map((item, index) => {
-        let specificConstHigh = null;
-        let specificConstLow = null
         let specificConstAverage = null
         const lowEnd = formState.revRange.substr(0, formState.revRange.indexOf('-')).replace(/,/g, '');
         const highEnd = formState.revRange.substr(formState.revRange.indexOf('-') + 1, formState.revRange.length).replace(/,/g, '');
@@ -60,7 +57,6 @@ const ResultsArr = () => {
             }
             if (item.rating[1])
                 startArr.push(<FontAwesomeIcon className='rating-start' icon={faStarHalfStroke} />)
-            debugger
             if (startArr.length < 5) {
                 for (let i = 0; i < 5 - startArr.length; i++) {
                     startArr.push(<FontAwesomeIcon icon={faStarEmpty} key={i + 'empty'} />)

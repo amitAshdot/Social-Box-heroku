@@ -44,7 +44,8 @@
 
             h3 {
                 margin-block-end: 1rem;
-
+                font-size: 3rem;
+                line-height: 3rem;
             }
 
             &-commision {
@@ -57,13 +58,14 @@
             }
 
             .referral-logo {
-                width: 9rem;
-                height: 5rem;
+                height: 3.5rem;
+                object-fit: contain;
             }
 
             .rating {
                 display: flex;
                 flex-direction: row-reverse;
+
                 *> {
                     font-size: 1rem;
                     color: #FFAF22;

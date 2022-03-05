@@ -45,18 +45,17 @@ export const mailSent = () => { return { type: formTypes.MAIL_SENT } }
 export const findAverage = (arr) => {
     const logoUrlObj = {
         "מקס": 'https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg',
-        "ישרכארט": 'https://check-box.co.il/wp-content/uploads/2021/09/98x57-business-logo-3.png',
+        "ישראכרט": 'https://check-box.co.il/wp-content/uploads/2021/09/98x57-business-logo-3.png',
         "UPAY": 'https://check-box.co.il/wp-content/uploads/2021/09/upay-3.png',
         "משולם": 'https://www.meshulam.biz/wp-content/uploads/2020/06/logo1.png',
-        "משולם": 'https://www.meshulam.biz/wp-content/uploads/2020/06/logo1.png',
+        // "משולם": 'https://www.meshulam.biz/wp-content/uploads/2020/06/logo1.png',
     }
     let companyMap = new Map()
     companyMap = mapByArr(arr)
 
     const finaleListArr = []
     companyMap.forEach((values, keys) => {
-
-        finaleListArr.push({ avg: (values.comission / values.amountToSub), name: values.company, img: logoUrlObj[values.company], amountToSub: values.amountToSub })
+        finaleListArr.push({ avg: (values.comission / values.amountToSub), name: values.company, img: logoUrlObj[values.company.replace(/['"]+/g, '')], amountToSub: values.amountToSub })
     });
 
     return { type: formTypes.SET_AVERAGE_COMMISION, payload: finaleListArr }

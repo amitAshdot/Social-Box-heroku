@@ -55,7 +55,6 @@ const MailForm = ({ url }) => {
           // if (formState.vendor !== '1')
           //   window.open(url, '_blank').focus();
 
-          console.log(result.text);
         }, (error) => {
           console.log(error.text);
         });
@@ -99,7 +98,7 @@ const MailForm = ({ url }) => {
           </div>
           : null}
 
-        <p className='contact-form-title'>{contentObj.title}</p>
+        <p className={`contact-form-title ${formState.vendor === '1' ? 'small' : null}`}>{contentObj.title}</p>
 
         <img src={formState.currentCompany.imgUrl} alt={formState.currentCompany.brand} />
 

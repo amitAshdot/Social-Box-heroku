@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux';
 // import Industry from './Industry';
-import { closeResults, findAverage, toggleMailForm } from '../../store/form/action';
+import { setCurrentCompany, findAverage, toggleMailForm } from '../../store/form/action';
 import { faPercent, faShekelSign } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -26,32 +26,29 @@ const Results = ({ industryeArr }) => {
     const formState = useSelector(state => state.formReducer);
     const dataState = useSelector(state => state.dataReducer);
 
-
     useEffect(() => {
         dispatch(findAverage(industryeArr));
     }, [])
 
-    // const handleClose = (e) => {
-    //     e.preventDefault();
-    //     dispatch(closeResults())
-    // }
-
-
     const handleToggle = (e) => {
         e.preventDefault();
         dispatch(toggleMailForm(!formState.mailForm))
+        const brand = e.target.getAttribute('brand')
+        const imgUrl = e.target.getAttribute('img-url')
+        const referralLink = e.target.getAttribute('referral-link')
+        dispatch(setCurrentCompany({ brand: brand, imgUrl: imgUrl, referralLink: referralLink }))
     }
+
     const createRefferalLinks = formState.vendor === '1' ?
         formState.avgArr.map((element, key) =>
         (<SwiperSlide className='item' key={key}>
-            <h3>{element.name}</h3>
+            <h3 >{element.name}</h3>
             <div className='referral-logo'>
-                <img defer src={element.image} alt={element.name} width="12" height="50" />
+                <img defer src={element.img} alt={element.name} width="12" height="50" />
             </div>
             <p className='item-commision'>
                 <FontAwesomeIcon className="icon" icon={faPercent} />
                 ממוצע עמלה:
-                {/* <FontAwesomeIcon className="icon" icon={faPercent} /> */}
                 {element.avg.toFixed(2)}
                 %
             </p>
@@ -63,7 +60,7 @@ const Results = ({ industryeArr }) => {
             </p>
 
             <p className='item-compare'>מספר תוצאות במדד:{element.amountToSub}</p>
-            <Link to="#" className='referral-btn btn' onClick={handleToggle}>
+            <Link to="#" className='referral-btn btn' onClick={handleToggle} brand={element.name} img-url={element.img} referral-link={'#'} >
                 {`להתחלת סליקה `}
             </Link>
         </SwiperSlide>)
@@ -77,9 +74,6 @@ const Results = ({ industryeArr }) => {
 
     return (
         <div className='results'>
-
-            {/* <FontAwesomeIcon className='close' close='close' icon={faTimesCircle} onClick={handleClose} /> */}
-
             <div className='results-items'>
                 <Swiper
                     dir="rtl"
@@ -105,7 +99,7 @@ const Results = ({ industryeArr }) => {
                         },
                     }}
                 >
-                    {createRefferalLinks.length? createRefferalLinks : 'לא נמצאו תוצאות מתאימות'}
+                    {createRefferalLinks.length ? createRefferalLinks : 'לא נמצאו תוצאות מתאימות'}
                 </Swiper>
             </div>
         </div>
