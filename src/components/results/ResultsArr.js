@@ -66,7 +66,7 @@ const ResultsArr = () => {
 
         return (
             <SwiperSlide className='result-referral' key={index}>
-                <div className='referral-logo'>
+                <div className='referral-logo' key={index}>
                     <img defer src={item.image} alt={item.brand} width="300" height="300" />
                     <h3>{item.brand}</h3>
                     <div className='rating'>

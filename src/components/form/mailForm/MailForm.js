@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import emailjs from 'emailjs-com';
 import { useDispatch, useSelector } from 'react-redux';
 import { mailSent, toggleMailForm, setError } from '../../../store/form/action';
 
-import MailSentLottie from '../../lottie/MailSentLottie';
+// import MailSentLottie from '../../lottie/MailSentLottie';
 
 // import { init } from '@emailjs/browser';
 // init("user_vDUBQd87BDiQhmE7iy0Cf");
 // import config from '../../../.config.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+
+const MailSentLottie = React.lazy(() => import('../../lottie/MailSentLottie'));
 
 const MailForm = ({ url }) => {
   const formState = useSelector(state => state.formReducer);
@@ -18,7 +20,7 @@ const MailForm = ({ url }) => {
   const ValidateEmail = (mail) => {
     return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) ? true : false
   }
-  const phonenumber = (inputtxt) => { debugger; return inputtxt.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/) ? true : false; }
+  const phonenumber = (inputtxt) => { return inputtxt.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/) ? true : false; }
 
   const changeStyle = (element, color) => { element.style.borderBottom = color; }
 
@@ -102,8 +104,11 @@ const MailForm = ({ url }) => {
 
         <img src={formState.currentCompany.imgUrl} alt={formState.currentCompany.brand} width="300" height="300" />
 
+        <Suspense fallback={<></>} >
+          {formState.mailSent ? <MailSentLottie /> : null}
+        </Suspense>
         {formState.mailSent ?
-          <MailSentLottie />
+          null
           :
           <div className='inputs'>
             <div className='inputs-top'>

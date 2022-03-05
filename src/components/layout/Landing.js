@@ -7,7 +7,8 @@ import { useSelector } from 'react-redux';
 // import GeneralForm from ;
 import MailForm from '../form/mailForm/MailForm';
 
-const GeneralForm = React.lazy(() => import('../form/general/GeneralForm'))
+const GeneralForm = React.lazy(() => import('../form/general/GeneralForm'));
+
 const Landing = () => {
     const formState = useSelector(state => state.formReducer);
 
