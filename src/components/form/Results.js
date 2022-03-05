@@ -44,7 +44,7 @@ const Results = ({ industryeArr }) => {
         (<SwiperSlide className='item' key={key}>
             <h3 >{element.name}</h3>
             <div className='referral-logo'>
-                <img defer src={element.img} alt={element.name} width="12" height="50" />
+                <img defer src={element.img} alt={element.name} width="500" height="120" />
             </div>
             <p className='item-commision'>
                 <FontAwesomeIcon className="icon" icon={faPercent} />

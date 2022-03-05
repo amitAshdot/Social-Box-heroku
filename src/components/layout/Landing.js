@@ -1,32 +1,27 @@
-import React, { useEffect } from 'react'
-// import ChoseType from '../form/ChoseType'
+import React, { useEffect, Suspense } from 'react'
 
 import Vendor from '../form/Vendor'
-// import Select from '../form1/Select'
 
 import { useSelector } from 'react-redux';
 
-import GeneralForm from '../form/general/GeneralForm';
+// import GeneralForm from ;
 import MailForm from '../form/mailForm/MailForm';
-// import ResultsArr from '../results/ResultsArr'
 
+const GeneralForm = React.lazy(() => import('../form/general/GeneralForm'))
 const Landing = () => {
     const formState = useSelector(state => state.formReducer);
-    // const dispatch = useDispatch();
-    // const [formType, setFormType] = useState(null)
+
     useEffect(() => {
 
     }, [])
 
     return (
         <>
-            {/* <MailForm /> */}
             <form className='form'>
                 <Vendor />
-                {formState.vendor ? <GeneralForm /> : null}
-
-                {/* <Select name={'industry1'} />
-            <Select name={'vendor1'} /> */}
+                <Suspense fallback={<>loading</>} >
+                    {formState.vendor ? <GeneralForm /> : null}
+                </Suspense>
             </form>
             {formState.mailForm ? <MailForm /> : null}
         </>

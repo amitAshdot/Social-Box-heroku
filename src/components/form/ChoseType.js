@@ -60,7 +60,7 @@ const ChoseType = () => {
                         <h3 className='option-head'>{btn.topText}</h3>
                         <picture>
                             <source media="(min-width:650px)" srcSet={btn.img} />
-                            <img src={btn.img} alt={btn.topText} />
+                            <img src={btn.img} alt={btn.topText} width="500" height="120" />
                         </picture>
                         <p className='option-text'>{btn.bottomText}</p>
                     </button>
@@ -72,7 +72,7 @@ const ChoseType = () => {
                     <h3 className='option-head'>קופה שיש לי בעסק</h3>
                     <picture>
                         <source media="(min-width:650px)" srcSet="/assets/images/cashier.webp" />
-                        <img src="/assets/images/cashier.webp" alt="Flowers" />
+                        <img src="/assets/images/cashier.webp" alt="Flowers" width="500" height="120" />
                     </picture>
                     <p className='option-text'>השוואת עמלות סליקת כרטיסי אשראי עבור קופה שיש לי בעסק</p>
 

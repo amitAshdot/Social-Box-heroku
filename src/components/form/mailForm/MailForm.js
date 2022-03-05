@@ -100,7 +100,7 @@ const MailForm = ({ url }) => {
 
         <p className={`contact-form-title ${formState.vendor === '1' ? 'small' : null}`}>{contentObj.title}</p>
 
-        <img src={formState.currentCompany.imgUrl} alt={formState.currentCompany.brand} />
+        <img src={formState.currentCompany.imgUrl} alt={formState.currentCompany.brand} width="300" height="300" />
 
         {formState.mailSent ?
           <MailSentLottie />

@@ -52,7 +52,7 @@ const Vendor = () => {
 
                 <picture>
                     <source media="(min-width:650px)" srcSet='/assets/images/ainli.webp' />
-                    <img src='/assets/images/ainli.webp' alt='אין לי ספק ' />
+                    <img src='/assets/images/ainli.webp' alt='אין לי ספק ' width="60" height="60" />
                 </picture>
                 אני רוצה להתחיל לסלוק דרך אפליקציה או המחשב או באמצעות אתר מסחר
             </button>
@@ -62,7 +62,7 @@ const Vendor = () => {
                 <h3>יש לי מספר ספק</h3>
                 <picture>
                     <source media="(min-width:650px)" srcSet='/assets/images/yeshli.webp' />
-                    <img src='/assets/images/yeshli.webp' alt="יש לי ספק" />
+                    <img src='/assets/images/yeshli.webp' alt="יש לי ספק" width="60" height="60" />
                 </picture>
                 יש לי כבר מסוף סליקה פעיל ואני רוצה להשוות בין עמלות הסליקה השונות
             </button>
@@ -77,7 +77,7 @@ const Vendor = () => {
                 null}
             <h2>יאללה מתחילים!</h2 >
 
-                <h3> האם יש לך מספר ספק מחברת האשראי? </h3>
+            <h3> האם יש לך מספר ספק מחברת האשראי? </h3>
 
 
             {formState.step !== stepNumber ?
