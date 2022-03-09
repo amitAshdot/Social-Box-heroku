@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 // import GeneralForm from ;
 import MailForm from '../form/mailForm/MailForm';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 const GeneralForm = React.lazy(() => import('../form/general/GeneralForm'));
 
 const Landing = () => {
@@ -20,7 +22,7 @@ const Landing = () => {
         <>
             <form className='form'>
                 <Vendor />
-                <Suspense fallback={<>loading</>} >
+                <Suspense fallback={<FontAwesomeIcon icon={(faSpinner)} />} >
                     {formState.vendor ? <GeneralForm /> : null}
                 </Suspense>
             </form>

@@ -1,20 +1,15 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-// import ChoseType from './ChoseType'
-// import RevRange from './RevRange'
-// import Vendor from './Vendor'
 
 import { useDispatch, useSelector } from 'react-redux';
-// import Industry from './Industry';
+
 import { setCurrentCompany, findAverage, toggleMailForm } from '../../store/form/action';
 import { faPercent, faShekelSign } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
-// import Swiper styles
-import 'swiper/css';
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";

@@ -72,7 +72,8 @@ const RevRange = () => {
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}
-            <h3>מה הוא מחזור העסקאות</h3>
+
+            {formState.step === stepNumber ? <h3>מה הוא מחזור העסקאות</h3> : null}
 
             {formState.step !== stepNumber ?
                 <>

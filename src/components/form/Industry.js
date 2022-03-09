@@ -62,7 +62,9 @@ const Industry = () => {
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}
-            <h3>סוג העסק</h3>
+
+            {formState.step === stepNumber ? <h3>סוג העסק</h3> : null}
+
             {formState.step !== stepNumber ?
                 <>
                     <p>{formState.industry}</p>

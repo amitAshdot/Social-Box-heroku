@@ -34,15 +34,26 @@ const ResultsArr = () => {
         dispatch(setCurrentCompany({ brand: brand, imgUrl: imgUrl, referralLink: referralLink }))
     }
 
-    useEffect(() => { }, [])
+    useEffect(() => { debugger }, [])
 
-    const filtered = dataState.referralLinks.filter(item => item.type === dataState.type[formState.type]);
+    // const filtered = dataState.referralLinks.filter(item => { debugger; return item.type === dataState.type[formState.type] });
 
-    const finaleRender = filtered.map((item, index) => {
+    // const finaleRender = filtered.map((item, index) => {
+    const finaleRender = dataState.referralLinks.map((item, index) => {
         let specificConstAverage = null
         const lowEnd = formState.revRange.substr(0, formState.revRange.indexOf('-')).replace(/,/g, '');
         const highEnd = formState.revRange.substr(formState.revRange.indexOf('-') + 1, formState.revRange.length).replace(/,/g, '');
-        const averageRev = (parseFloat(highEnd) + parseFloat(lowEnd)) / 2;
+        const isNumber = (value) => {
+            return typeof value === 'number' && isFinite(value);
+        }
+        let averageRev = null
+        debugger
+        if (lowEnd !== '') {
+            averageRev = (parseFloat(highEnd) + parseFloat(lowEnd)) / 2;
+        }
+        else {
+            averageRev = 100001;
+        }
 
         if (item.month) {
             specificConstAverage = item.monthly_cost !== '' ? parseFloat(item.monthly_cost) + parseFloat(((item.month / 100) * averageRev).toFixed(2)) : ((item.month / 100) * averageRev).toFixed(2);
@@ -50,17 +61,20 @@ const ResultsArr = () => {
             specificConstAverage = item.monthly_cost !== '' ? parseFloat(item.monthly_cost) + parseFloat(((item.daily / 100) * averageRev).toFixed(2)) : ((item.daily / 100) * averageRev).toFixed(2);
         }
 
-        let startArr = []
+        let starsArr = []
         if (item.rating) {
             for (let i = 0; i < item.rating[0]; i++) {
-                startArr.push(<FontAwesomeIcon className='rating-start' icon={faStar} key={i} />)
+                starsArr.push(<FontAwesomeIcon className='rating-start' icon={faStar} key={i} />)
             }
             if (item.rating[1])
-                startArr.push(<FontAwesomeIcon className='rating-start' icon={faStarHalfStroke} />)
-            if (startArr.length < 5) {
-                for (let i = 0; i < 5 - startArr.length; i++) {
-                    startArr.push(<FontAwesomeIcon icon={faStarEmpty} key={i + 'empty'} />)
+                starsArr.push(<FontAwesomeIcon className='rating-start' icon={faStarHalfStroke} />)
+
+            if (starsArr.length < 5) {
+                let tempStarsArr = []
+                for (let i = 0; i < 5 - starsArr.length; i++) {
+                    tempStarsArr.push(<FontAwesomeIcon icon={faStarEmpty} key={i + 'empty'} />)
                 }
+                starsArr = [...starsArr, ...tempStarsArr]
             }
         }
 
@@ -70,7 +84,16 @@ const ResultsArr = () => {
                     <img defer src={item.image} alt={item.brand} width="300" height="300" />
                     <h3>{item.brand}</h3>
                     <div className='rating'>
-                        {startArr.length ? startArr : null}
+
+                        <p className='rating-stars'>{starsArr.length ? starsArr : null}</p>
+
+                        <p className='rating-deatils'>
+                            כל הדירוגים וחוות הדעת באתר הן מגולשים
+                            <span>
+                                אמיתיים
+                            </span>
+                            ומפוקחות על ידי צוות צ'ק בוקס
+                        </p>
                     </div>
                 </div>
                 <div className='referral-main'>
@@ -78,16 +101,32 @@ const ResultsArr = () => {
                     <p className='referral-main-cost'>₪{item.monthly_cost ? item.monthly_cost : "0"} / לחודש</p>
                 </div>
                 <div className='referral-details'>
-                    {item.month ?
+                    {
+                        <div className='referral-details-row'>
+                            <p className='referral-details-text'>קבלת הכסף פעם בחודש</p>
+                            <p className='referral-details-number'>{item.month ? `${item.month}%` : `-`}</p>
+
+                        </div>
+                    }
+                    {/* {item.month &&
                         <div className='referral-details-row'>
                             <p className='referral-details-text'>קבלת הכסף פעם בחודש</p>
                             <p className='referral-details-number'>{item.month}%</p>
 
                         </div>
-                        :
+                    } */}
+                    {/* {
+                        item.daily &&
                         <div className='referral-details-row'>
                             <p className='referral-details-text'>קבלת הכסף באותו היום</p>
                             <p className='referral-details-number'>{item.daily}%</p>
+                        </div>
+                    } */}
+                    {
+                        item.daily &&
+                        <div className='referral-details-row'>
+                            <p className='referral-details-text'>קבלת הכסף באותו היום</p>
+                            <p className='referral-details-number'>{item.daily ? `${item.daily}%` : `-`}</p>
                         </div>
                     }
                     <div className='referral-details-row'>

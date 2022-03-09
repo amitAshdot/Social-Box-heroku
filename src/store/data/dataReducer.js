@@ -3,10 +3,11 @@ import data from "../../mock/data.json"
 import revRange from "../../mock/rev_range.json"
 import company from "../../mock/company.json"
 import industry from "../../mock/industry.json"
-import referral from "../../mock/referral.json"
+import referral from "../../mock/referral-new.json"
 const initState = {
     data: data,
     range: revRange,
+    referralLinks: referral,
     company: company,
     industry: industry,
     type: {
@@ -14,7 +15,6 @@ const initState = {
         2: 'אתר מסחר',
         3: 'קופה'
     },
-    referralLinks: referral,
 
     // vendor1: {
     //     id: 1,

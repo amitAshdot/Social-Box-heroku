@@ -48,6 +48,16 @@
                 line-height: 3rem;
             }
 
+            .rating {
+                display: flex;
+                flex-direction: row-reverse;
+
+                *> {
+                    font-size: 1rem;
+                    color: #FFAF22;
+                }
+            }
+
             &-commision {
                 font-size: 1.5rem;
                 color: $color-primary;
@@ -60,15 +70,15 @@
             .referral-logo {
                 height: 3.5rem;
                 object-fit: contain;
-            }
 
-            .rating {
-                display: flex;
-                flex-direction: row-reverse;
+                .rating {
+                    display: flex;
+                    flex-direction: row-reverse;
 
-                *> {
-                    font-size: 1rem;
-                    color: #FFAF22;
+                    *> {
+                        font-size: 1rem;
+                        color: #FFAF22;
+                    }
                 }
             }
 

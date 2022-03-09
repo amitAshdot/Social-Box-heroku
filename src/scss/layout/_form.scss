@@ -526,6 +526,16 @@ button {
 
     .result-referral {
         display: flex;
+
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+
+            *> {
+                font-size: 1rem;
+                color: #FFAF22;
+            }
+        }
     }
 
     .referral {
@@ -536,6 +546,12 @@ button {
             align-items: center;
             align-self: center;
             margin-inline-start: 0rem;
+            overflow: revert;
+
+            &>* {
+                overflow: revert;
+
+            }
 
             @include respond(min-tab-port) {
                 margin-inline-start: 1rem;
@@ -550,6 +566,55 @@ button {
             &>h3 {
                 font-size: 1.2rem;
             }
+
+            .rating {
+                position: relative;
+
+                &-stars {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    // position: relative;
+
+                    &>* {
+                        font-size: 1rem;
+                        color: #FFAF22;
+                    }
+
+                    &:hover,
+                    &:focus {
+                        &~.rating-deatils {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                &-deatils {
+                    position: absolute;
+                    opacity: 0;
+                    // color: white;
+                    background: rgba($color-grey-light-1, 0.94);
+                    border: 1px solid $color-primary;
+                    padding: 1rem;
+                    font-size: 1.2rem;
+                    line-height: 1.5rem;
+                    transition: all 0.3s;
+                    width: 20rem;
+                    display: flex;
+                    flex-direction: column;
+                    bottom: -7.5rem;
+                    right: -25%;
+
+                    @include respond(min-tab-port) {
+                        bottom: -7.5rem;
+                        right: 0rem;
+                    }
+
+                    &>span {
+                        font-weight: bold;
+                    }
+                }
+            }
+
         }
 
         &-main {
@@ -639,8 +704,7 @@ button {
 
             &-deatils {
                 position: absolute;
-                bottom: 6.5rem;
-                right: 0rem;
+
                 opacity: 0;
                 // color: white;
                 background: rgba($color-grey-light-1, 0.94);
@@ -649,6 +713,13 @@ button {
                 font-size: 1.2rem;
                 line-height: 1.5rem;
                 transition: all 0.3s;
+                bottom: 14.5rem;
+                right: 0rem;
+
+                @include respond(min-tab-port) {
+                    bottom: 6.5rem;
+                }
+
 
                 &:empty {
                     display: none;

@@ -75,9 +75,16 @@ const Vendor = () => {
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}
-            <h2>יאללה מתחילים!</h2 >
+            {formState.step === stepNumber ?
+                <>
+                    <h2>יאללה מתחילים!</h2 >
 
-            <h3> האם יש לך מספר ספק מחברת האשראי? </h3>
+                    <h3> האם יש לך מספר ספק מחברת האשראי? </h3>
+                </>
+                :
+                null}
+
+
 
 
             {formState.step !== stepNumber ?

@@ -125,7 +125,7 @@ const ChoseType = () => {
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}
-            <h3>אני רוצה לסלוק באמצעות:</h3>
+            {formState.step === stepNumber ? <h3>אני רוצה לסלוק באמצעות:</h3> : null}
             {formState.step !== stepNumber ?
                 <>
                     <p>{chosenType ? btnArr[chosenType - 1].bottomText : null}</p>
