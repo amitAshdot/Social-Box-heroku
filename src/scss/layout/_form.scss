@@ -464,6 +464,10 @@ button {
                 @include respond(min-tab-port) {
                     font-size: 2rem;
                 }
+
+                &::placeholder {
+                    color: white;
+                }
             }
 
             input[type="submit"] {
@@ -501,6 +505,10 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    .swiper-button-disabled {
+        display: none;
+    }
 }
 
 

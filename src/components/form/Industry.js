@@ -58,7 +58,7 @@ const Industry = () => {
             onClick={formState.step !== stepNumber && formState.industry ? handleChoseAgain : null}
         >
 
-            {formState.step !== stepNumber ?
+            {formState.step !== stepNumber && formState.industry ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}

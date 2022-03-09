@@ -121,7 +121,7 @@ const ChoseType = () => {
             onClick={formState.step !== stepNumber && formState.type ? handleChoseAgain : null}
         >
 
-            {formState.type && formState.step !== stepNumber ?
+            {formState.type && formState.step && chosenType !== stepNumber ?
                 <FontAwesomeIcon className='step-num' icon={faCircleCheck} />
                 :
                 null}

@@ -34,7 +34,7 @@ const ResultsArr = () => {
         dispatch(setCurrentCompany({ brand: brand, imgUrl: imgUrl, referralLink: referralLink }))
     }
 
-    useEffect(() => { debugger }, [])
+    useEffect(() => { }, [])
 
     // const filtered = dataState.referralLinks.filter(item => { debugger; return item.type === dataState.type[formState.type] });
 
@@ -43,11 +43,10 @@ const ResultsArr = () => {
         let specificConstAverage = null
         const lowEnd = formState.revRange.substr(0, formState.revRange.indexOf('-')).replace(/,/g, '');
         const highEnd = formState.revRange.substr(formState.revRange.indexOf('-') + 1, formState.revRange.length).replace(/,/g, '');
-        const isNumber = (value) => {
-            return typeof value === 'number' && isFinite(value);
-        }
+        // const isNumber = (value) => {
+        //     return typeof value === 'number' && isFinite(value);
+        // }
         let averageRev = null
-        debugger
         if (lowEnd !== '') {
             averageRev = (parseFloat(highEnd) + parseFloat(lowEnd)) / 2;
         }
@@ -63,24 +62,25 @@ const ResultsArr = () => {
 
         let starsArr = []
         if (item.rating) {
+
             for (let i = 0; i < item.rating[0]; i++) {
-                starsArr.push(<FontAwesomeIcon className='rating-start' icon={faStar} key={i} />)
+                starsArr.push(<FontAwesomeIcon className='rating-start' icon={faStar} key={`${item.id} ${index}${i} ${Date.now()}`} />)
             }
             if (item.rating[1])
-                starsArr.push(<FontAwesomeIcon className='rating-start' icon={faStarHalfStroke} />)
+                starsArr.push(<FontAwesomeIcon className='rating-start' icon={faStarHalfStroke} key={`${item.id} ${index} ${Date.now()}`} />)
 
             if (starsArr.length < 5) {
                 let tempStarsArr = []
                 for (let i = 0; i < 5 - starsArr.length; i++) {
-                    tempStarsArr.push(<FontAwesomeIcon icon={faStarEmpty} key={i + 'empty'} />)
+                    tempStarsArr.push(<FontAwesomeIcon icon={faStarEmpty} key={i + `empty ${item.id}${i} ${index} ${Date.now()}`} />)
                 }
                 starsArr = [...starsArr, ...tempStarsArr]
             }
         }
 
         return (
-            <SwiperSlide className='result-referral' key={index}>
-                <div className='referral-logo' key={index}>
+            <SwiperSlide className='result-referral' key={item.id}>
+                <div className='referral-logo' >
                     <img defer src={item.image} alt={item.brand} width="300" height="300" />
                     <h3>{item.brand}</h3>
                     <div className='rating'>
