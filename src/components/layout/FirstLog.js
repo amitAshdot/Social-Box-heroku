@@ -17,7 +17,7 @@ const FirstLog = ({ handleCookie }) => {
             <p className='intro-text'>
                 ענו על 4 שאלות פשוטות וקבלו הצעות מחיר מותאמות אישית לסליקה במחשב ובנייד, בקופה / מסופון או לאתר האינטרנט של העסק.
 
-                <button className='next ' onClick={handleClick}>
+                <button className='intro-next' onClick={handleClick}>
                     לשאלה ראשונה
                     <FontAwesomeIcon className='check' icon={faAngleLeft} />
                     {/* <FontAwesomeIcon className='check' icon={faAngleLeft} onClick={handleClick} /> */}
