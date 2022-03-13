@@ -48,7 +48,7 @@ export const findAverage = (arr) => {
         "ישראכרט": 'https://check-box.co.il/wp-content/uploads/2021/09/98x57-business-logo-3.png',
         "UPAY": 'https://check-box.co.il/wp-content/uploads/2021/09/upay-3.png',
         "משולם": 'https://www.meshulam.biz/wp-content/uploads/2020/06/logo1.png',
-        "כאל": 'https://www.meshulam.biz/wp-content/uploads/2020/06/logo1.png',
+        "כאל": 'https://www.yoter.co.il/wp-content/uploads/2018/12/download-1.jpg',
         // "משולם": 'https://www.meshulam.biz/wp-content/uploads/2020/06/logo1.png',
     }
     let companyMap = new Map()

@@ -1,0 +1,48 @@
+.intro {
+    padding: 1rem;
+    text-align: center;
+
+    &-title {
+        text-align: center;
+        font-size: 4rem;
+        color: primary color;
+    }
+
+    &-check {
+        float: right;
+    }
+
+    &-text {
+        font-size: 2.1rem;
+        line-height: 2.2rem;
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+button.next {
+    align-items: center;
+    background-color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 10rem;
+    bottom: 0%;
+    box-shadow: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: almoni-tzar, sans-serif;
+    font-size: 2.125rem;
+    height: auto;
+    outline: none;
+    padding: 0.6rem 1rem;
+    position: relative;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color .2s ease;
+    width: 16rem;
+    z-index: 1;
+}

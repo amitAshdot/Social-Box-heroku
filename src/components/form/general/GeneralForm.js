@@ -16,12 +16,11 @@ const GeneralForm = () => {
     const formState = useSelector(state => state.formReducer);
     const dataState = useSelector(state => state.dataReducer);
 
-
     const industryeArr = dataState.data.filter(data => {
         return (data.industry.trim() === formState.industry && data.rev_range === formState.revRange)
     })
-
     useEffect(() => { }, [])
+
 
     return (
         <>

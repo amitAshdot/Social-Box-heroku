@@ -15,7 +15,7 @@
     "plugin": "",
     "comments": "",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/upay-3.png",
-    "size": "[[small, medium]]"
+    "size": ["small", "medium"]
   },
   {
     "id": 5,
@@ -33,7 +33,7 @@
     "plugin": "",
     "comments": "תוסף סליקה לוורדפרס - ללא עלות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
-    "size": "[small, medium]"
+    "size": ["small", "medium"]
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "plugin": "",
     "comments": "חודש סליקה חינם ! תנאי זיכוי: עסקאות בתשלום אחד -זיכוי ב2 לחודש העוקבלכרטיסים שהונפקו בישראל* עסקאות בתשלומים -זיכוי ב2 לחודש העוקב ,לכרטיסים שהונפקו בישראל* *בכפוף לאישור קבוצת ישראכרט.",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/98x57-business-logo-3.png",
-    "size": "[small, medium]"
+    "size": ["small", "medium"]
   },
   {
     "id": 7,
@@ -69,7 +69,7 @@
     "plugin": "",
     "comments": "",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/unnamed-1.jpg",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 9,
@@ -87,7 +87,7 @@
     "plugin": "",
     "comments": "ממשק ניהול עם מערכת דוחות מתקדמת | ללא הגבלה עמודי מכירה| ניתן לסלוק במקביל ממספר מקומות | בקשות תשלום ללקוחות | אופציה לחשבונית דיגטלית | תוסף סליקה בתשלום נוסף!",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/easycard-1-2.png",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 10,
@@ -105,7 +105,7 @@
     "plugin": "",
     "comments": "חדש! בקשות תשלום ב-SMS | ללא התחייבות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 12,
@@ -123,7 +123,7 @@
     "plugin": "",
     "comments": "ממשק ניהול עם מערכת דוחות מתקדמת | חיוב דרך אפליקציה | מערכת אוטומטית לשליחת חשבוניות ואינטגרציה מובנית עם PAYPAL בתוספת של 30 ₪ | דרישות תשלום אינטרנטיות יעודיות ללקוחות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/%D7%98%D7%A8%D7%A0%D7%96%D7%99%D7%9C%D7%94-1.png",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 13,
@@ -141,7 +141,7 @@
     "plugin": "",
     "comments": "",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/easycard-1-2.png",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 14,
@@ -159,7 +159,7 @@
     "plugin": "",
     "comments": "",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/98x57-business-logo-3.png",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 15,
@@ -177,7 +177,7 @@
     "plugin": "",
     "comments": "חדש! בקשות תשלום ב-SMS | ללא התחייבות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 16,
@@ -195,7 +195,7 @@
     "plugin": "",
     "comments": "עסקאות בתשלום אחד – זיכוי ב2 לחודש העוקב לכרטיסים שהונפקו בישראל*\nעסקאות בתשלומים – זיכוי ב2 לחודש העוקב ,לכרטיסים שהונפקו בישראל*",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/98x57-business-logo-3.png",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 17,
@@ -213,7 +213,7 @@
     "plugin": "",
     "comments": "ללא הגבלה עמודי מכירה | בקשות תשלום ללקוחות | חשבונית דיגיטל בתוספת 19.90 ₪ לחודש | תוסף סליקה בתשלום נוסף!",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/easycard-1-2.png",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 18,
@@ -231,7 +231,7 @@
     "plugin": "",
     "comments": "",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 19,
@@ -249,7 +249,7 @@
     "plugin": "",
     "comments": "חדש! בקשות תשלום ב-SMS | ללא התחייבות.  כמות חשבוניות בחודש לא כלול במחיר !",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 20,
@@ -267,7 +267,7 @@
     "plugin": "",
     "comments": "עסקאות בתשלום אחד – זיכוי ב2 לחודש העוקב לכרטיסים שהונפקו בישראל*  כמות חשבוניות בחודש לא כלול במחיר !\nעסקאות בתשלומים – זיכוי ב2 לחודש העוקב ,לכרטיסים שהונפקו בישראל*",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/98x57-business-logo-3.png",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 21,
@@ -285,7 +285,7 @@
     "plugin": "",
     "comments": "חדש! בקשות תשלום ב-SMS | ללא התחייבות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 22,
@@ -303,7 +303,7 @@
     "plugin": "",
     "comments": "מערכת דוחות ישירה מול רואה החשבון | מערכת ניהול לקוחות מתקדמת  | עיצוב מסמכים מתקדם  | גיבוי לדרופבוקס ולדרייב  | אבטחה מתקדמת זיהוי בSMS  | העלאת מסמכים מרוכזת.  כמות חשבוניות בחודש - 100",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/Easy-Count-logo-color4-300x200-1-1.jpg",
-    "size": "[small]"
+    "size": [ "small" ]
   },
   {
     "id": 23,
@@ -321,7 +321,7 @@
     "plugin": "",
     "comments": "מערכת דוחות ישירה מול רואה החשבון | מערכת ניהול לקוחות מתקדמת  | עיצוב מסמכים מתקדם  | גיבוי לדרופבוקס ולדרייב  | אבטחה מתקדמת זיהוי בSMS  | העלאת מסמכים מרוכזת.  כמות חשבוניות בחודש - 200",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/Easy-Count-logo-color4-300x200-1-1.jpg",
-    "size": "[small]"
+    "size": [ "small" ]
   },
   {
     "id": 24,
@@ -339,7 +339,7 @@
     "plugin": "",
     "comments": "חיבור לחשבונית עם מערכת חשבונית פנימית ב 29₪.  כמות חשבוניות בחודש - 0",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/unnamed-1.jpg",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 26,
@@ -357,7 +357,7 @@
     "plugin": "",
     "comments": "כמות חשבוניות - 200",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/cut_LOGO_Pink-4-1.png",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 27,
@@ -375,7 +375,7 @@
     "plugin": "",
     "comments": "כמות חשבוניות - 50",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/logo-1.png",
-    "size": ""
+    "size":[ "none" ]
   },
   {
     "id": 28,
@@ -393,7 +393,7 @@
     "plugin": "",
     "comments": "כמות חשבוניות בחודש - 2500.  ממשק ניהול עם מערכת דוחות מתקדמת | חיוב דרך אפליקציה | מערכת אוטומטית לשליחת חשבוניות ואינטגרציה מובנית עם PAYPAL בתוספת של 30 ₪ | דרישות תשלום אינטרנטיות יעודיות ללקוחות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/%D7%98%D7%A8%D7%A0%D7%96%D7%99%D7%9C%D7%94-1.png",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 29,
@@ -411,7 +411,7 @@
     "plugin": "",
     "comments": "כמות חשבוניות בחודש 100",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/logo-1.png",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 30,
@@ -429,7 +429,7 @@
     "plugin": "",
     "comments": "תוסף וורדפרס ללא עלות , מערכת מתקדמת לדוחות, דפי תשלום מתקדמים חיוב והפקת חשבוניות דיגיטליות מהמחשב והנייד. תוספת של 29 ש\"ח מע\"מ עבור חשבוניות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/unnamed-1.jpg",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 31,
@@ -447,7 +447,7 @@
     "plugin": "",
     "comments": "תוסף סליקה לוורדפרס - ללא עלות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 32,
@@ -465,7 +465,7 @@
     "plugin": "",
     "comments": "ממשק ניהול עם מערכת דוחות מתקדמת | חיוב דרך אפליקציה | דרישות תשלום אינטרנטיות יעודיות ללקוחות 200 מסמכים - 145 ש״ח לחודש 1,000 מסמכים - 180 ש״ח בחודש 2.0000 מסמכים - 299 ש״ח בחודש",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/%D7%98%D7%A8%D7%A0%D7%96%D7%99%D7%9C%D7%94-1.png",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 33,
@@ -483,7 +483,7 @@
     "plugin": "",
     "comments": "ממשק ניהול עם מערכת דוחות מתקדמת | חיוב דרך אפליקציה | דרישות תשלום אינטרנטיות יעודיות ללקוחות 200 מסמכים - 145 ש״ח לחודש 1,000 מסמכים - 180 ש״ח בחודש 2.0000 מסמכים - 299 ש״ח בחודש",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/%D7%98%D7%A8%D7%A0%D7%96%D7%99%D7%9C%D7%94-1.png",
-    "size": "[ medium , big , large]"
+    "size": [ "medium" , "big" , "large"]
   },
   {
     "id": 34,
@@ -501,7 +501,7 @@
     "plugin": "",
     "comments": "תוסף סליקה לוורדפרס - ללא עלות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/meta-business-2.jpg",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   },
   {
     "id": 35,
@@ -519,6 +519,6 @@
     "plugin": "",
     "comments": "תוסף סליקה לוורדפרס - ללא עלות",
     "image": "https://check-box.co.il/wp-content/uploads/2021/09/98x57-business-logo-3.png",
-    "size": "[small, medium]"
+    "size": [ "small" , "medium" ]
   }
 ]

@@ -36,10 +36,21 @@ const ResultsArr = () => {
 
     useEffect(() => { }, [])
 
-    // const filtered = dataState.referralLinks.filter(item => { debugger; return item.type === dataState.type[formState.type] });
-
-    // const finaleRender = filtered.map((item, index) => {
-    const finaleRender = dataState.referralLinks.map((item, index) => {
+    const filtered = dataState.referralLinks.filter(item => {
+        const compSize = {
+            "0-5,000": 'small',
+            "5,001-10,00": 'small',
+            "10,001-20,000": 'small',
+            "20,001-40,000": 'medium',
+            "40,001-70,000": 'medium',
+            "70,001-100,000": 'big',
+            "100,001 ומעלה": 'large',
+        }
+        const isPart = item.size.filter(size => size === compSize[formState.revRange])
+        return isPart.length
+    });
+    console.log(filtered.length, dataState.referralLinks.length)
+    const finaleRender = filtered.map((item, index) => {
         let specificConstAverage = null
         const lowEnd = formState.revRange.substr(0, formState.revRange.indexOf('-')).replace(/,/g, '');
         const highEnd = formState.revRange.substr(formState.revRange.indexOf('-') + 1, formState.revRange.length).replace(/,/g, '');
