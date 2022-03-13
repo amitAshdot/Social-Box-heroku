@@ -510,6 +510,12 @@ button {
     .swiper-button-disabled {
         display: none;
     }
+
+    &-text {
+        font-size: 1.1rem;
+        line-height: 1.1rem;
+        padding-block-start: 1rem;
+    }
 }
 
 

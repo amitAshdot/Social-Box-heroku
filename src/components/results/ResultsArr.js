@@ -49,8 +49,10 @@ const ResultsArr = () => {
         const isPart = item.size.filter(size => size === compSize[formState.revRange])
         return isPart.length
     });
-    console.log(filtered.length, dataState.referralLinks.length)
-    const finaleRender = filtered.map((item, index) => {
+
+    const sortArr = filtered.sort(function (a, b) { return b.rating[0] - a.rating[0] });
+
+    const finaleRender = sortArr.map((item, index) => {
         let specificConstAverage = null
         const lowEnd = formState.revRange.substr(0, formState.revRange.indexOf('-')).replace(/,/g, '');
         const highEnd = formState.revRange.substr(formState.revRange.indexOf('-') + 1, formState.revRange.length).replace(/,/g, '');
@@ -90,6 +92,7 @@ const ResultsArr = () => {
         }
 
         return (
+
             <SwiperSlide className='result-referral' key={item.id}>
                 <div className='referral-logo' >
                     <img defer src={item.image} alt={item.brand} width="300" height="300" />
@@ -119,20 +122,6 @@ const ResultsArr = () => {
 
                         </div>
                     }
-                    {/* {item.month &&
-                        <div className='referral-details-row'>
-                            <p className='referral-details-text'>קבלת הכסף פעם בחודש</p>
-                            <p className='referral-details-number'>{item.month}%</p>
-
-                        </div>
-                    } */}
-                    {/* {
-                        item.daily &&
-                        <div className='referral-details-row'>
-                            <p className='referral-details-text'>קבלת הכסף באותו היום</p>
-                            <p className='referral-details-number'>{item.daily}%</p>
-                        </div>
-                    } */}
                     {
                         item.daily &&
                         <div className='referral-details-row'>
@@ -153,10 +142,10 @@ const ResultsArr = () => {
                         <p className='referral-details-number'>
                             {item.month || (item.daily && !isNaN(specificConstAverage)) ?
                                 <>
-                                    {specificConstAverage}
+                                    {specificConstAverage.toFixed(2)}
                                 </>
                                 :
-                                item.monthly_cost
+                                item.monthly_cost.toFixed(2)
                             }
                         </p>
                     </div>
@@ -180,6 +169,8 @@ const ResultsArr = () => {
 
     return (
         <div className='result'>
+            <p className='result-text'>להלן חבילות הסליקה המתאימות ביותר לעסק בהתאם לנתונים שהזנת.</p>
+            <p className='result-text'>החבילות מסודרות מהציון הגבוה לנמוך.</p>
             <Swiper
                 dir="rtl"
                 navigation={true}
